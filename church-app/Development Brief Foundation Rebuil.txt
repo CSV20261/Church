@@ -1,0 +1,222 @@
+Development Brief: Foundation Rebuild
+From: Vusi (Project Manager 04C)
+To: Opus (Developer)
+Priority: HIGH - Foundation Fix
+Date: January 2025
+
+🎯 OBJECTIVE
+Rebuild the app foundation to match the correct church hierarchy structure before proceeding with any other features.
+
+📊 NEW DATABASE SCHEMA REQUIRED
+Tables to Create/Modify:
+1. apostleship (NEW)
+Column	Type	Description
+id	UUID	Primary key
+name	TEXT	Name of the apostleship
+apostle_id	UUID	FK to profiles (the Apostle)
+created_at	TIMESTAMP	
+updated_at	TIMESTAMP	
+2. overseerships (NEW - replaces/extends divisions)
+Column	Type	Description
+id	UUID	Primary key
+name	TEXT	Name of overseership
+apostleship_id	UUID	FK to apostleship
+overseer_id	UUID	FK to profiles (Fourfold Officer - Overseer/Shepherd)
+created_at	TIMESTAMP	
+updated_at	TIMESTAMP	
+3. elderships (NEW)
+Column	Type	Description
+id	UUID	Primary key
+name	TEXT	Name of eldership
+overseership_id	UUID	FK to overseerships
+elder_id	UUID	FK to profiles (Elder - Shepherd type)
+created_at	TIMESTAMP	
+updated_at	TIMESTAMP	
+4. priestships (NEW)
+Column	Type	Description
+id	UUID	Primary key
+name	TEXT	Name of priestship
+eldership_id	UUID	FK to elderships
+priest_id	UUID	FK to profiles (Priest - Shepherd type)
+created_at	TIMESTAMP	
+updated_at	TIMESTAMP	
+5. administrative_divisions (NEW)
+Column	Type	Description
+id	UUID	Primary key
+name	TEXT	Youth, Adult, Young Adult, Senior Citizens, Sunday School, Evangelism
+type	ENUM	'youth', 'adult', 'young_adult', 'senior_citizen', 'sunday_school', 'evangelism'
+level	ENUM	'apostleship', 'overseership', 'eldership'
+parent_id	UUID	FK to apostleship/overseership/eldership based on level
+leader_id	UUID	FK to profiles (the leader assigned)
+created_at	TIMESTAMP	
+updated_at	TIMESTAMP	
+6. leadership_assignments (NEW)
+Column	Type	Description
+id	UUID	Primary key
+profile_id	UUID	FK to profiles
+assignment_type	ENUM	'primary', 'additional'
+unit_type	ENUM	'apostleship', 'overseership', 'eldership', 'priestship', 'specialist'
+unit_id	UUID	FK to relevant unit table (nullable if specialist)
+specialist_type	ENUM	NULL or 'youth', 'young_adult', 'adult', 'senior_citizen', 'sunday_school', 'evangelism'
+is_active	BOOLEAN	
+created_at	TIMESTAMP	
+updated_at	TIMESTAMP	
+7. profiles (MODIFY)
+Add columns:
+
+Column	Type	Description
+role	ENUM	'apostle', 'evangelist', 'prophet', 'overseer_shepherd', 'elder', 'priest', 'underdeacon', 'member'
+role_subtype	ENUM	NULL, 'shepherd', 'specialist'
+approval_status	ENUM	'pending', 'approved', 'rejected'
+approved_by	UUID	FK to profiles
+approved_at	TIMESTAMP	
+primary_assignment_id	UUID	FK to leadership_assignments
+8. members (MODIFY)
+Add columns:
+
+Column	Type	Description
+priestship_id	UUID	FK to priestships
+approval_status	ENUM	'pending', 'approved', 'rejected'
+approved_by	UUID	FK to profiles
+approved_at	TIMESTAMP	
+🔐 UPDATED ROLE HIERARCHY
+text
+
+ENUM: roles
+- 'apostle'           (Level 1 - Highest)
+- 'evangelist'        (Level 2 - Fourfold)
+- 'prophet'           (Level 2 - Fourfold)
+- 'overseer_shepherd' (Level 2 - Fourfold)
+- 'elder'             (Level 3)
+- 'priest'            (Level 4)
+- 'underdeacon'       (Level 5)
+- 'member'            (Level 6 - No app access until approved)
+
+ENUM: role_subtypes
+- 'shepherd'    (works with 1 unit only)
+- 'specialist'  (works with 2+ units OR specific division focus)
+
+ENUM: specialist_types
+- 'youth'
+- 'young_adult'
+- 'adult'
+- 'senior_citizen'
+- 'sunday_school'
+- 'evangelism'
+🧙 MULTI-STEP ONBOARDING WIZARD
+After user signs up, redirect to onboarding wizard:
+
+Step 1: Personal Information
+First Name (required)
+Last Name (required)
+Phone Number (required)
+Profile Photo (optional)
+Step 2: Select Your Role
+Display role options (underdeacon → apostle)
+Show description for each role
+Note: Members select "Member" and will await approval
+Step 3: Select Primary Assignment Type
+Options based on role:
+
+If Apostle: Auto-assign to Apostleship
+If Fourfold Officer: Select Overseership(s) OR Specialist
+If Elder: Select Eldership OR Specialist
+If Priest: Select Priestship OR Specialist
+If Underdeacon: Select Priestship they serve under
+If Member: Select Priestship they belong to
+Step 4: (Conditional) Specialist Type
+If user selected "Specialist" in Step 3:
+
+Youth Specialist
+Young Adult Specialist
+Adult Specialist
+Senior Citizen Specialist
+Sunday School Specialist
+Evangelist Specialist
+Step 5: Additional Responsibilities (Optional)
+Multi-select checkboxes
+Youth Division
+Young Adult Division
+Adult Division
+Senior Citizens Division
+Sunday School Division
+Evangelism Division
+Step 6: Review & Submit
+Show summary of all selections
+Submit button
+Display message: "Your registration has been submitted for approval"
+✅ APPROVAL WORKFLOW
+New users submit registration → status = 'pending'
+Leadership sees pending approvals in dashboard
+Leadership can approve/reject
+On approval → user gains full access based on role
+On rejection → user sees "Contact your church leadership" message
+Who can approve whom:
+
+Approver Role	Can Approve
+Apostle	Everyone
+Fourfold Officers	Elders, Priests, Underdeacons, Members in their overseership
+Elders	Priests, Underdeacons, Members in their eldership
+Priests	Underdeacons, Members in their priestship
+🔄 VIEW SWITCHER FOR MULTI-ASSIGNMENT USERS
+Create a component that:
+
+Appears in header/dashboard when user has multiple assignments
+Dropdown showing all their assignments
+Selecting an assignment filters all dashboard data to that context
+Persist selection in local storage
+Example UI:
+
+text
+
+[Currently viewing: Eldership A ▼]
+  - Eldership A (Primary)
+  - Youth Division
+  - Evangelism Division
+📁 NEW FILES TO CREATE
+text
+
+src/
+├── app/
+│   ├── (app)/
+│   │   ├── onboarding/
+│   │   │   └── page.tsx (Multi-step wizard)
+│   │   ├── pending-approval/
+│   │   │   └── page.tsx (Waiting screen for unapproved users)
+│   │   └── dashboard/
+│   │       └── approvals/
+│   │           └── page.tsx (Approval management for leadership)
+├── components/
+│   ├── onboarding/
+│   │   ├── OnboardingWizard.tsx
+│   │   ├── StepPersonalInfo.tsx
+│   │   ├── StepSelectRole.tsx
+│   │   ├── StepPrimaryAssignment.tsx
+│   │   ├── StepSpecialistType.tsx
+│   │   ├── StepAdditionalResponsibilities.tsx
+│   │   └── StepReview.tsx
+│   ├── ViewSwitcher.tsx
+│   └── ApprovalCard.tsx
+└── types/
+    └── index.ts (Update with new types)
+🔒 UPDATED RLS POLICIES
+Users with 'pending' status can only access onboarding and pending-approval pages
+Dashboard and features require 'approved' status
+Data scoped to user's assignments (primary + additional)
+⚠️ IMPORTANT NOTES
+Do NOT delete existing data - migrate/transform where possible
+Power Cells - noted but NOT to be built now
+Members (role) - they register but have no app access until approved, and even then limited access
+Specialists - can be assigned at any leadership level (Fourfold, Elder, Priest)
+📋 EXECUTION ORDER
+Create new database tables via Supabase SQL Editor
+Modify existing tables (profiles, members)
+Create TypeScript types for new entities
+Build onboarding wizard (6 steps)
+Build pending approval page
+Build approval management for leadership
+Build view switcher component
+Update dashboard to respect context/assignments
+Update RLS policies
+Test full flow
+Opus, please confirm you understand this brief and begin with Step 1: Database Schema.
