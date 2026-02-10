@@ -29,7 +29,7 @@ export default async function HierarchyPage() {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-3 sm:p-4 md:p-6 lg:p-8 w-full overflow-x-hidden">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-green-800">Church Hierarchy</h1>
         <p className="text-gray-600 mt-1">
