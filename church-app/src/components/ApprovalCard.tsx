@@ -80,7 +80,7 @@ export default function ApprovalCard({
     if (level <= 3) return 'bg-blue-100 text-blue-700';
     if (level <= 4) return 'bg-green-100 text-green-700';
     if (level <= 5) return 'bg-yellow-100 text-yellow-700';
-    return 'bg-gray-100 text-gray-700';
+    return 'bg-neutral-100 text-neutral-700';
   };
 
   const getAssignmentInfo = () => {
@@ -102,7 +102,7 @@ export default function ApprovalCard({
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
       {/* Header */}
       <div 
-        className="p-4 cursor-pointer hover:bg-gray-50 transition-colors"
+        className="p-4 cursor-pointer hover:bg-neutral-50 transition-colors"
         onClick={() => setExpanded(!expanded)}
       >
         <div className="flex items-center justify-between">
@@ -116,7 +116,7 @@ export default function ApprovalCard({
 
             {/* Name and role */}
             <div>
-              <h3 className="font-semibold text-gray-800">
+              <h3 className="font-semibold text-neutral-800">
                 {profile.first_name} {profile.last_name}
               </h3>
               <div className="flex items-center gap-2 mt-1">
@@ -124,7 +124,7 @@ export default function ApprovalCard({
                   {formatRole(profile.role)}
                 </span>
                 {profile.role_subtype && (
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-neutral-500">
                     ({profile.role_subtype})
                   </span>
                 )}
@@ -134,11 +134,11 @@ export default function ApprovalCard({
 
           {/* Status and expand */}
           <div className="flex items-center gap-3">
-            <span className="text-xs text-gray-500">
+            <span className="text-xs text-neutral-500">
               Submitted: {submittedDate}
             </span>
             <svg 
-              className={`w-5 h-5 text-gray-400 transition-transform ${expanded ? 'rotate-180' : ''}`}
+              className={`w-5 h-5 text-neutral-400 transition-transform ${expanded ? 'rotate-180' : ''}`}
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -151,15 +151,15 @@ export default function ApprovalCard({
 
       {/* Expanded details */}
       {expanded && (
-        <div className="border-t border-gray-100 p-4 bg-gray-50">
+        <div className="border-t border-neutral-100 p-4 bg-neutral-50">
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <p className="text-xs text-gray-500">Phone</p>
-              <p className="text-sm font-medium text-gray-800">{profile.phone || 'Not provided'}</p>
+              <p className="text-xs text-neutral-500">Phone</p>
+              <p className="text-sm font-medium text-neutral-800">{profile.phone || 'Not provided'}</p>
             </div>
             <div>
-              <p className="text-xs text-gray-500">Assignment</p>
-              <p className="text-sm font-medium text-gray-800">{getAssignmentInfo() || 'Not specified'}</p>
+              <p className="text-xs text-neutral-500">Assignment</p>
+              <p className="text-sm font-medium text-neutral-800">{getAssignmentInfo() || 'Not specified'}</p>
             </div>
           </div>
 
@@ -217,3 +217,4 @@ export default function ApprovalCard({
     </div>
   );
 }
+

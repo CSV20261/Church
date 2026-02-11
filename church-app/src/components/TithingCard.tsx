@@ -169,8 +169,8 @@ export default function TithingCard({
   if (isMemberRole) {
     return (
       <Card className="p-6">
-        <h2 className="text-lg font-semibold text-gray-800 mb-4">Your Tithing History</h2>
-        <p className="text-sm text-gray-500 italic">
+        <h2 className="text-lg font-semibold text-neutral-800 mb-4">Your Tithing History</h2>
+        <p className="text-sm text-neutral-500 italic">
           Your tithing records are managed by your division leader. Contact them for details.
         </p>
       </Card>
@@ -182,9 +182,9 @@ export default function TithingCard({
       <Card className="p-6">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">Tithing Monitoring</h2>
+            <h2 className="text-lg font-semibold text-neutral-800">Tithing Monitoring</h2>
             {lastUpdate && (
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-neutral-400">
                 Last updated: {lastUpdate.toLocaleTimeString()}
               </p>
             )}
@@ -218,10 +218,10 @@ export default function TithingCard({
                 </p>
               </div>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
-                <p className="text-xs text-blue-600 font-medium">Compliance</p>
+                <p className="text-xs text-primary-600 font-medium">Compliance</p>
                 <p className="text-xl font-bold text-blue-800">
                   {compliancePercent}%
-                  <span className="text-sm font-normal text-blue-600 ml-1">
+                  <span className="text-sm font-normal text-primary-600 ml-1">
                     ({membersTithedThisMonth.size}/{members.length})
                   </span>
                 </p>
@@ -236,10 +236,10 @@ export default function TithingCard({
             )}
 
             {/* Recent records list */}
-            <div className="border-t border-gray-200 pt-4">
-              <h3 className="text-sm font-medium text-gray-700 mb-3">Recent Contributions</h3>
+            <div className="border-t border-neutral-200 pt-4">
+              <h3 className="text-sm font-medium text-neutral-700 mb-3">Recent Contributions</h3>
               {tithingRecords.length === 0 ? (
-                <p className="text-center text-gray-500 py-4 text-sm">
+                <p className="text-center text-neutral-500 py-4 text-sm">
                   No tithing records yet.
                 </p>
               ) : (
@@ -247,13 +247,13 @@ export default function TithingCard({
                   {tithingRecords.slice(0, 10).map((record) => (
                     <div
                       key={record.id}
-                      className="flex items-center justify-between p-2 bg-gray-50 rounded-lg text-sm"
+                      className="flex items-center justify-between p-2 bg-neutral-50 rounded-lg text-sm"
                     >
                       <div>
-                        <p className="font-medium text-gray-800">
+                        <p className="font-medium text-neutral-800">
                           {getMemberName(record.member_id)}
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-neutral-500">
                           {new Date(record.date).toLocaleDateString()}
                           {record.payment_method && ` • ${record.payment_method}`}
                         </p>
@@ -282,3 +282,4 @@ export default function TithingCard({
     </>
   );
 }
+

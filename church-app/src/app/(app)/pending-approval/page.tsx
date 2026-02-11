@@ -80,10 +80,10 @@ export default function PendingApprovalPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="min-h-screen flex items-center justify-center bg-neutral-100">
         <div className="text-center">
           <div className="w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Checking status...</p>
+          <p className="text-neutral-600">Checking status...</p>
         </div>
       </div>
     );
@@ -92,7 +92,7 @@ export default function PendingApprovalPage() {
   const isRejected = profile?.approval_status === 'rejected';
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-neutral-100 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         {/* Header */}
         <div className="text-center mb-8">
@@ -110,8 +110,8 @@ export default function PendingApprovalPage() {
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">❌</span>
                 </div>
-                <h2 className="text-xl font-semibold text-gray-800">Registration Not Approved</h2>
-                <p className="text-gray-600 mt-2">
+                <h2 className="text-xl font-semibold text-neutral-800">Registration Not Approved</h2>
+                <p className="text-neutral-600 mt-2">
                   Your registration was not approved. Please contact your church leadership for more information.
                 </p>
               </div>
@@ -128,26 +128,26 @@ export default function PendingApprovalPage() {
                 <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">⏳</span>
                 </div>
-                <h2 className="text-xl font-semibold text-gray-800">Awaiting Approval</h2>
-                <p className="text-gray-600 mt-2">
+                <h2 className="text-xl font-semibold text-neutral-800">Awaiting Approval</h2>
+                <p className="text-neutral-600 mt-2">
                   Your registration has been submitted and is pending review by church leadership.
                 </p>
               </div>
 
               {profile && (
-                <div className="bg-gray-50 rounded-lg p-4 mb-6 space-y-2">
+                <div className="bg-neutral-50 rounded-lg p-4 mb-6 space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Name:</span>
-                    <span className="font-medium text-gray-800">
+                    <span className="text-neutral-600">Name:</span>
+                    <span className="font-medium text-neutral-800">
                       {profile.first_name} {profile.last_name}
                     </span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Role:</span>
-                    <span className="font-medium text-gray-800">{formatRole(profile.role)}</span>
+                    <span className="text-neutral-600">Role:</span>
+                    <span className="font-medium text-neutral-800">{formatRole(profile.role)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Status:</span>
+                    <span className="text-neutral-600">Status:</span>
                     <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded-full text-xs font-medium">
                       Pending
                     </span>
@@ -167,17 +167,18 @@ export default function PendingApprovalPage() {
 
           <button
             onClick={handleLogout}
-            className="w-full px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+            className="w-full px-4 py-2 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 transition-colors"
           >
             Sign Out
           </button>
         </div>
 
         {/* Contact info */}
-        <p className="text-center text-sm text-gray-500 mt-6">
+        <p className="text-center text-sm text-neutral-500 mt-6">
           Need help? Contact your local church leadership.
         </p>
       </div>
     </div>
   );
 }
+

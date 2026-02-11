@@ -37,16 +37,16 @@ export default function MembersCard({ members, profile, divisionId }: MembersCar
     return (
       <Card className="p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-gray-800">Your Profile</h2>
+          <h2 className="text-lg font-semibold text-neutral-800">Your Profile</h2>
         </div>
-        <div className="bg-gray-50 rounded-lg p-4">
-          <p className="text-sm text-gray-600">
+        <div className="bg-neutral-50 rounded-lg p-4">
+          <p className="text-sm text-neutral-600">
             <strong>Name:</strong> {profile.full_name || 'Not set'}
           </p>
-          <p className="text-sm text-gray-600 mt-1">
+          <p className="text-sm text-neutral-600 mt-1">
             <strong>Role:</strong> {profile.role.charAt(0).toUpperCase() + profile.role.slice(1)}
           </p>
-          <p className="text-sm text-gray-500 mt-3 italic">
+          <p className="text-sm text-neutral-500 mt-3 italic">
             Contact your division leader to view the full member directory.
           </p>
         </div>
@@ -59,8 +59,8 @@ export default function MembersCard({ members, profile, divisionId }: MembersCar
       <Card className="p-6">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">Members</h2>
-            <p className="text-sm text-gray-500">
+            <h2 className="text-lg font-semibold text-neutral-800">Members</h2>
+            <p className="text-sm text-neutral-500">
               Total: {memberList.length} {divisionId ? 'in your division' : 'members'}
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function MembersCard({ members, profile, divisionId }: MembersCar
         )}
 
         {memberList.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
+          <div className="text-center py-8 text-neutral-500">
             <p>No members found in your division.</p>
             {userCanAdd && divisionId && (
               <p className="text-sm mt-2">Click "Add Member" to add your first member.</p>
@@ -94,7 +94,7 @@ export default function MembersCard({ members, profile, divisionId }: MembersCar
             {memberList.map((member) => (
               <div
                 key={member.id}
-                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                className="flex items-center justify-between p-3 bg-neutral-50 rounded-lg hover:bg-neutral-100 transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
@@ -103,10 +103,10 @@ export default function MembersCard({ members, profile, divisionId }: MembersCar
                     </span>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-800">
+                    <p className="font-medium text-neutral-800">
                       {member.first_name} {member.last_name}
                     </p>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-neutral-500">
                       {member.role.charAt(0).toUpperCase() + member.role.slice(1)}
                       {member.phone && ` • ${member.phone}`}
                     </p>
@@ -118,7 +118,7 @@ export default function MembersCard({ members, profile, divisionId }: MembersCar
                       Active
                     </span>
                   ) : (
-                    <span className="px-2 py-1 text-xs bg-gray-100 text-gray-500 rounded-full">
+                    <span className="px-2 py-1 text-xs bg-neutral-100 text-neutral-500 rounded-full">
                       Inactive
                     </span>
                   )}
@@ -141,3 +141,4 @@ export default function MembersCard({ members, profile, divisionId }: MembersCar
     </>
   );
 }
+

@@ -69,14 +69,14 @@ export default function LoginPage() {
   const handleSubmit = mode === 'signin' ? handleSignIn : handleSignUp;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-neutral-100">
       <div className="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-lg w-full max-w-md">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-green-800 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-3xl text-white">✝</span>
           </div>
           <h1 className="text-2xl font-bold text-green-800">Older Apostolic Church</h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-neutral-600 mt-2">
             {mode === 'signin' ? 'Sign in to your account' : 'Create a new account'}
           </p>
         </div>
@@ -89,7 +89,7 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">
               Email
             </label>
             <input
@@ -97,14 +97,14 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
+              className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-neutral-900"
               placeholder="your@email.com"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="password" className="block text-sm font-medium text-neutral-700 mb-1">
               Password
             </label>
             <input
@@ -112,7 +112,7 @@ export default function LoginPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
+              className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-neutral-900"
               placeholder="••••••••"
               minLength={6}
               required
@@ -127,7 +127,7 @@ export default function LoginPage() {
               className={`flex-1 font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50 ${
                 mode === 'signin'
                   ? 'bg-green-700 hover:bg-green-800 text-white'
-                  : 'bg-gray-200 hover:bg-gray-300 text-gray-700'
+                  : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-700'
               }`}
             >
               {loading && mode === 'signin' ? 'Signing in...' : 'Sign In'}
@@ -139,7 +139,7 @@ export default function LoginPage() {
               className={`flex-1 font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50 ${
                 mode === 'signup'
                   ? 'bg-green-700 hover:bg-green-800 text-white'
-                  : 'bg-gray-200 hover:bg-gray-300 text-gray-700'
+                  : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-700'
               }`}
             >
               {loading && mode === 'signup' ? 'Creating...' : 'Sign Up'}
@@ -159,3 +159,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

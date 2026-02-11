@@ -32,14 +32,14 @@ const REPORT_TYPES = [
   { value: 'absence', label: 'Absence Report', color: 'bg-yellow-100 text-yellow-700', icon: '📋' },
   { value: 'concern', label: 'Concern', color: 'bg-red-100 text-red-700', icon: '⚠️' },
   { value: 'prayer_request', label: 'Prayer Request', color: 'bg-purple-100 text-purple-700', icon: '🙏' },
-  { value: 'other', label: 'Other', color: 'bg-gray-100 text-gray-700', icon: '📝' },
+  { value: 'other', label: 'Other', color: 'bg-neutral-100 text-neutral-700', icon: '📝' },
 ];
 
 const STATUS_OPTIONS = [
   { value: 'open', label: 'Open', color: 'bg-yellow-100 text-yellow-700' },
   { value: 'in_progress', label: 'In Progress', color: 'bg-blue-100 text-blue-700' },
   { value: 'resolved', label: 'Resolved', color: 'bg-green-100 text-green-700' },
-  { value: 'closed', label: 'Closed', color: 'bg-gray-100 text-gray-700' },
+  { value: 'closed', label: 'Closed', color: 'bg-neutral-100 text-neutral-700' },
 ];
 
 export default function ReportsPage() {
@@ -162,13 +162,13 @@ export default function ReportsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Reports</h1>
-          <p className="text-gray-600">Manage wellness checks, absence reports, and concerns</p>
+          <h1 className="text-2xl font-bold text-neutral-900">Reports</h1>
+          <p className="text-neutral-600">Manage wellness checks, absence reports, and concerns</p>
         </div>
         {userProfile && canManageReports(userProfile.role) && (
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
           >
             <Plus size={20} />
             New Report
@@ -184,49 +184,49 @@ export default function ReportsPage() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
-              <FileBarChart size={24} className="text-blue-600" />
+              <FileBarChart size={24} className="text-primary-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-500">Total Reports</p>
-              <p className="text-xl font-bold text-gray-900">{reports.length}</p>
+              <p className="text-sm text-neutral-500">Total Reports</p>
+              <p className="text-xl font-bold text-neutral-900">{reports.length}</p>
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center">
               <Clock size={24} className="text-yellow-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-500">Open/Active</p>
-              <p className="text-xl font-bold text-gray-900">{openReports}</p>
+              <p className="text-sm text-neutral-500">Open/Active</p>
+              <p className="text-xl font-bold text-neutral-900">{openReports}</p>
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center">
               <CheckCircle size={24} className="text-green-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-500">Resolved</p>
-              <p className="text-xl font-bold text-gray-900">
+              <p className="text-sm text-neutral-500">Resolved</p>
+              <p className="text-xl font-bold text-neutral-900">
                 {reports.filter(r => r.status === 'resolved' || r.status === 'closed').length}
               </p>
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center">
               <AlertCircle size={24} className="text-purple-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-500">This Week</p>
-              <p className="text-xl font-bold text-gray-900">{thisWeekReports}</p>
+              <p className="text-sm text-neutral-500">This Week</p>
+              <p className="text-xl font-bold text-neutral-900">{thisWeekReports}</p>
             </div>
           </div>
         </div>
@@ -235,11 +235,11 @@ export default function ReportsPage() {
       {/* Filters */}
       <div className="flex flex-wrap gap-4 mb-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
+          <label className="block text-sm font-medium text-neutral-700 mb-1">Type</label>
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           >
             <option value="">All Types</option>
             {REPORT_TYPES.map(t => (
@@ -248,11 +248,11 @@ export default function ReportsPage() {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+          <label className="block text-sm font-medium text-neutral-700 mb-1">Status</label>
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           >
             <option value="">All Statuses</option>
             {STATUS_OPTIONS.map(s => (
@@ -263,22 +263,22 @@ export default function ReportsPage() {
       </div>
 
       {/* Reports List */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+      <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
         <table className="w-full">
-          <thead className="bg-gray-50 border-b border-gray-200">
+          <thead className="bg-neutral-50 border-b border-neutral-200">
             <tr>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Member</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-              <th className="text-right px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Type</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Member</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Description</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Date</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Status</th>
+              <th className="text-right px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
             {filteredReports.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
+                <td colSpan={6} className="px-6 py-12 text-center text-neutral-500">
                   No reports found.
                 </td>
               </tr>
@@ -287,19 +287,19 @@ export default function ReportsPage() {
                 const typeInfo = getReportTypeInfo(report.report_type);
                 const statusInfo = getStatusInfo(report.status);
                 return (
-                  <tr key={report.id} className="hover:bg-gray-50">
+                  <tr key={report.id} className="hover:bg-neutral-50">
                     <td className="px-6 py-4">
                       <span className={`inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full ${typeInfo.color}`}>
                         {typeInfo.icon} {typeInfo.label}
                       </span>
                     </td>
                     <td className="px-6 py-4">
-                      <span className="font-medium text-gray-900">{report.member?.full_name || 'Unknown'}</span>
+                      <span className="font-medium text-neutral-900">{report.member?.full_name || 'Unknown'}</span>
                     </td>
-                    <td className="px-6 py-4 text-gray-600 max-w-xs truncate">
+                    <td className="px-6 py-4 text-neutral-600 max-w-xs truncate">
                       {report.description}
                     </td>
-                    <td className="px-6 py-4 text-gray-500 text-sm">
+                    <td className="px-6 py-4 text-neutral-500 text-sm">
                       {formatDate(report.created_at)}
                     </td>
                     <td className="px-6 py-4">
@@ -326,7 +326,7 @@ export default function ReportsPage() {
                             setSelectedReport(report);
                             setIsViewModalOpen(true);
                           }}
-                          className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                          className="p-2 text-neutral-400 hover:text-primary-600 hover:bg-blue-50 rounded-lg transition-colors"
                           title="View Details"
                         >
                           <Eye size={18} />
@@ -433,7 +433,7 @@ function ReportModal({
       <div className="bg-white rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-lg font-semibold">New Report</h2>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
+          <button onClick={onClose} className="p-2 hover:bg-neutral-100 rounded-lg">
             <X size={20} />
           </button>
         </div>
@@ -444,11 +444,11 @@ function ReportModal({
             </div>
           )}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Member *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Member *</label>
             <select
               value={memberId}
               onChange={(e) => setMemberId(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               required
             >
               <option value="">Select member</option>
@@ -458,11 +458,11 @@ function ReportModal({
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Report Type *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Report Type *</label>
             <select
               value={reportType}
               onChange={(e) => setReportType(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               {REPORT_TYPES.map(t => (
                 <option key={t.value} value={t.value}>{t.icon} {t.label}</option>
@@ -470,11 +470,11 @@ function ReportModal({
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Description *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Description *</label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               rows={4}
               placeholder="Describe the report..."
               required
@@ -484,14 +484,14 @@ function ReportModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+              className="flex-1 px-4 py-2 border border-neutral-300 text-neutral-700 rounded-lg hover:bg-neutral-50"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+              className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
             >
               {loading ? 'Saving...' : 'Submit Report'}
             </button>
@@ -524,7 +524,7 @@ function ViewReportModal({
       <div className="bg-white rounded-xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-lg font-semibold">Report Details</h2>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
+          <button onClick={onClose} className="p-2 hover:bg-neutral-100 rounded-lg">
             <X size={20} />
           </button>
         </div>
@@ -537,8 +537,8 @@ function ViewReportModal({
               <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${typeInfo.color}`}>
                 {typeInfo.label}
               </span>
-              <h3 className="text-xl font-semibold text-gray-900 mt-1">{report.member?.full_name}</h3>
-              <p className="text-sm text-gray-500">
+              <h3 className="text-xl font-semibold text-neutral-900 mt-1">{report.member?.full_name}</h3>
+              <p className="text-sm text-neutral-500">
                 {new Date(report.created_at).toLocaleDateString('en-ZA', { 
                   weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' 
                 })}
@@ -548,20 +548,20 @@ function ViewReportModal({
 
           <div className="space-y-4">
             <div>
-              <h4 className="text-sm font-medium text-gray-500 mb-1">Status</h4>
+              <h4 className="text-sm font-medium text-neutral-500 mb-1">Status</h4>
               <span className={`inline-flex px-3 py-1 text-sm font-medium rounded-full ${statusInfo.color}`}>
                 {statusInfo.label}
               </span>
             </div>
 
             <div>
-              <h4 className="text-sm font-medium text-gray-500 mb-1">Description</h4>
-              <p className="text-gray-900 whitespace-pre-wrap">{report.description}</p>
+              <h4 className="text-sm font-medium text-neutral-500 mb-1">Description</h4>
+              <p className="text-neutral-900 whitespace-pre-wrap">{report.description}</p>
             </div>
 
             {report.resolved_at && (
               <div className="pt-4 border-t">
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-neutral-500">
                   Resolved on {new Date(report.resolved_at).toLocaleDateString()}
                 </p>
               </div>
@@ -571,7 +571,7 @@ function ViewReportModal({
         <div className="p-4 border-t">
           <button
             onClick={onClose}
-            className="w-full px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
+            className="w-full px-4 py-2 bg-neutral-100 text-neutral-700 rounded-lg hover:bg-neutral-200"
           >
             Close
           </button>
@@ -580,3 +580,4 @@ function ViewReportModal({
     </div>
   );
 }
+

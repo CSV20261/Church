@@ -225,8 +225,8 @@ export default function AttendanceCard({
   if (isMemberRole) {
     return (
       <Card className="p-6">
-        <h2 className="text-lg font-semibold text-gray-800 mb-4">Your Attendance</h2>
-        <p className="text-sm text-gray-500 italic">
+        <h2 className="text-lg font-semibold text-neutral-800 mb-4">Your Attendance</h2>
+        <p className="text-sm text-neutral-500 italic">
           Your attendance records are managed by your division leader.
         </p>
       </Card>
@@ -238,9 +238,9 @@ export default function AttendanceCard({
       <Card className="p-6">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">Attendance Tracking</h2>
+            <h2 className="text-lg font-semibold text-neutral-800">Attendance Tracking</h2>
             {lastUpdate && (
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-neutral-400">
                 Last updated: {lastUpdate.toLocaleTimeString()}
               </p>
             )}
@@ -248,7 +248,7 @@ export default function AttendanceCard({
           {(divisionId || hasGlobalAccess(profile.role)) && userCanRecord && (
             <button
               onClick={() => setIsEventModalOpen(true)}
-              className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-lg transition-colors"
+              className="px-3 py-1.5 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-sm font-medium rounded-lg transition-colors"
             >
               + New Event
             </button>
@@ -264,7 +264,7 @@ export default function AttendanceCard({
         )}
 
         {(divisionId || hasGlobalAccess(profile.role)) && events.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
+          <div className="text-center py-8 text-neutral-500">
             <p>No upcoming services or events.</p>
             {userCanRecord && (
               <button
@@ -279,13 +279,13 @@ export default function AttendanceCard({
           <>
             {/* Event selector */}
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-neutral-700 mb-1">
                 Select Event
               </label>
               <select
                 value={selectedEventId || ''}
                 onChange={(e) => handleEventChange(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 bg-white"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-neutral-900 bg-white"
               >
                 {events.map((event) => (
                   <option key={event.id} value={event.id}>
@@ -304,7 +304,7 @@ export default function AttendanceCard({
 
             {/* Member attendance grid */}
             {members.length === 0 ? (
-              <p className="text-center text-gray-500 py-4">
+              <p className="text-center text-neutral-500 py-4">
                 No members in your division yet.
               </p>
             ) : (
@@ -317,7 +317,7 @@ export default function AttendanceCard({
                     <div
                       key={member.id}
                       className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${
-                        isPresent ? 'bg-green-50' : 'bg-gray-50'
+                        isPresent ? 'bg-green-50' : 'bg-neutral-50'
                       }`}
                     >
                       {/* Checkbox */}
@@ -327,7 +327,7 @@ export default function AttendanceCard({
                         className={`w-6 h-6 rounded border-2 flex items-center justify-center transition-colors ${
                           isPresent
                             ? 'bg-green-600 border-green-600 text-white'
-                            : 'bg-white border-gray-300'
+                            : 'bg-white border-neutral-300'
                         } ${!userCanRecord ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
                       >
                         {isPresent && (
@@ -343,10 +343,10 @@ export default function AttendanceCard({
 
                       {/* Member info */}
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium text-gray-800 truncate">
+                        <p className="font-medium text-neutral-800 truncate">
                           {member.first_name} {member.last_name}
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-neutral-500">
                           {member.role.charAt(0).toUpperCase() + member.role.slice(1)}
                         </p>
                       </div>
@@ -358,7 +358,7 @@ export default function AttendanceCard({
                         onChange={(e) => updateNotes(member.id, e.target.value)}
                         placeholder="Notes..."
                         disabled={!userCanRecord}
-                        className="w-32 px-2 py-1 text-sm border border-gray-200 rounded focus:ring-1 focus:ring-green-500 focus:border-transparent text-gray-700 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                        className="w-32 px-2 py-1 text-sm border border-neutral-200 rounded focus:ring-1 focus:ring-green-500 focus:border-transparent text-neutral-700 disabled:bg-neutral-100 disabled:cursor-not-allowed"
                       />
 
                       {/* Status badge */}
@@ -366,7 +366,7 @@ export default function AttendanceCard({
                         className={`px-2 py-1 text-xs rounded-full ${
                           isPresent
                             ? 'bg-green-100 text-green-700'
-                            : 'bg-gray-200 text-gray-600'
+                            : 'bg-neutral-200 text-neutral-600'
                         }`}
                       >
                         {isPresent ? 'Present' : 'Absent'}
@@ -379,7 +379,7 @@ export default function AttendanceCard({
 
             {/* Save button */}
             {userCanRecord && members.length > 0 && (
-              <div className="mt-4 pt-4 border-t border-gray-200">
+              <div className="mt-4 pt-4 border-t border-neutral-200">
                 <button
                   onClick={saveAttendance}
                   disabled={saving}
@@ -405,3 +405,4 @@ export default function AttendanceCard({
     </>
   );
 }
+

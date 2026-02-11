@@ -87,7 +87,7 @@ function AddMemberModal({
       <div className="bg-white rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-lg font-semibold">Add New Member</h2>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
+          <button onClick={onClose} className="p-2 hover:bg-neutral-100 rounded-lg">
             <X size={20} />
           </button>
         </div>
@@ -98,42 +98,42 @@ function AddMemberModal({
             </div>
           )}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Full Name *</label>
             <input
               type="text"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               placeholder="Enter full name"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Phone</label>
             <input
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               placeholder="+27 xxx xxx xxxx"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               placeholder="email@example.com"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Priestship</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Priestship</label>
             <select
               value={priestshipId}
               onChange={(e) => setPriestshipId(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               <option value="">Select priestship (optional)</option>
               {priestships.map((p) => (
@@ -145,14 +145,14 @@ function AddMemberModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+              className="flex-1 px-4 py-2 border border-neutral-300 text-neutral-700 rounded-lg hover:bg-neutral-50"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+              className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
             >
               {loading ? 'Adding...' : 'Add Member'}
             </button>
@@ -238,7 +238,7 @@ function EditMemberModal({
       <div className="bg-white rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-lg font-semibold">Edit Member</h2>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
+          <button onClick={onClose} className="p-2 hover:bg-neutral-100 rounded-lg">
             <X size={20} />
           </button>
         </div>
@@ -249,31 +249,31 @@ function EditMemberModal({
             </div>
           )}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Full Name *</label>
             <input
               type="text"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Contact Info</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Contact Info</label>
             <input
               type="text"
               value={contactInfo}
               onChange={(e) => setContactInfo(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               placeholder="Phone: +27..., Email: ..."
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Priestship</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Priestship</label>
             <select
               value={priestshipId}
               onChange={(e) => setPriestshipId(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               <option value="">Unassigned</option>
               {priestships.map((p) => (
@@ -282,11 +282,11 @@ function EditMemberModal({
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Status</label>
             <select
               value={approvalStatus}
               onChange={(e) => setApprovalStatus(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               <option value="pending">Pending</option>
               <option value="approved">Approved</option>
@@ -297,14 +297,14 @@ function EditMemberModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+              className="flex-1 px-4 py-2 border border-neutral-300 text-neutral-700 rounded-lg hover:bg-neutral-50"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+              className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
             >
               {loading ? 'Saving...' : 'Save Changes'}
             </button>
@@ -340,7 +340,7 @@ function ViewMemberModal({
       <div className="bg-white rounded-xl shadow-xl max-w-md w-full">
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-lg font-semibold">Member Details</h2>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
+          <button onClick={onClose} className="p-2 hover:bg-neutral-100 rounded-lg">
             <X size={20} />
           </button>
         </div>
@@ -348,11 +348,11 @@ function ViewMemberModal({
           {/* Avatar and Name */}
           <div className="flex flex-col items-center mb-6">
             <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center mb-3">
-              <span className="text-2xl font-bold text-blue-600">
+              <span className="text-2xl font-bold text-primary-600">
                 {member.full_name.split(' ').map((n: string) => n[0]).join('').slice(0, 2).toUpperCase()}
               </span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900">{member.full_name}</h3>
+            <h3 className="text-xl font-semibold text-neutral-900">{member.full_name}</h3>
             <span className={`mt-2 inline-flex px-3 py-1 text-sm font-medium rounded-full ${
               member.approval_status === 'approved' 
                 ? 'bg-green-100 text-green-700' 
@@ -365,34 +365,34 @@ function ViewMemberModal({
           {/* Details */}
           <div className="space-y-4">
             {phone && (
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                <Phone size={20} className="text-gray-400" />
+              <div className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg">
+                <Phone size={20} className="text-neutral-400" />
                 <div>
-                  <p className="text-xs text-gray-500">Phone</p>
+                  <p className="text-xs text-neutral-500">Phone</p>
                   <p className="font-medium">{phone}</p>
                 </div>
               </div>
             )}
             {email && (
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                <Mail size={20} className="text-gray-400" />
+              <div className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg">
+                <Mail size={20} className="text-neutral-400" />
                 <div>
-                  <p className="text-xs text-gray-500">Email</p>
+                  <p className="text-xs text-neutral-500">Email</p>
                   <p className="font-medium">{email}</p>
                 </div>
               </div>
             )}
-            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-              <Users size={20} className="text-gray-400" />
+            <div className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg">
+              <Users size={20} className="text-neutral-400" />
               <div>
-                <p className="text-xs text-gray-500">Priestship</p>
+                <p className="text-xs text-neutral-500">Priestship</p>
                 <p className="font-medium">{member.priestship?.name || 'Unassigned'}</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-              <Calendar size={20} className="text-gray-400" />
+            <div className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg">
+              <Calendar size={20} className="text-neutral-400" />
               <div>
-                <p className="text-xs text-gray-500">Added</p>
+                <p className="text-xs text-neutral-500">Added</p>
                 <p className="font-medium">{new Date(member.created_at).toLocaleDateString()}</p>
               </div>
             </div>
@@ -401,7 +401,7 @@ function ViewMemberModal({
         <div className="p-4 border-t">
           <button
             onClick={onClose}
-            className="w-full px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
+            className="w-full px-4 py-2 bg-neutral-100 text-neutral-700 rounded-lg hover:bg-neutral-200"
           >
             Close
           </button>
@@ -537,13 +537,13 @@ export default function MembersPage() {
       {/* Header - Mobile Optimized */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
         <div>
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900">Members</h1>
-          <p className="text-sm sm:text-base text-gray-600">Manage church members</p>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-neutral-900">Members</h1>
+          <p className="text-sm sm:text-base text-neutral-600">Manage church members</p>
         </div>
         {userProfile && canManageMembers(userProfile.role) && (
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-bold text-sm sm:text-base"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-bold text-sm sm:text-base"
           >
             <Plus size={20} />
             Add Member
@@ -554,18 +554,18 @@ export default function MembersPage() {
       {/* Search and Stats - Mobile Optimized */}
       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-6">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400" size={18} />
           <input
             type="text"
             placeholder="Search members..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-3 py-2 text-sm border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-medium"
+            className="w-full pl-10 pr-3 py-2 text-sm border-2 border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent font-medium"
           />
         </div>
-        <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-gray-100 rounded-lg border-2 border-gray-300">
-          <Users size={18} className="text-gray-600" />
-          <span className="text-gray-700 font-bold text-sm sm:text-base">{filteredMembers.length} members</span>
+        <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-neutral-100 rounded-lg border-2 border-neutral-300">
+          <Users size={18} className="text-neutral-600" />
+          <span className="text-neutral-700 font-bold text-sm sm:text-base">{filteredMembers.length} members</span>
         </div>
       </div>
 
@@ -577,8 +577,8 @@ export default function MembersPage() {
 
       {/* Members List - Mobile Cards / Desktop Table */}
       {filteredMembers.length === 0 ? (
-        <div className="bg-white rounded-xl shadow-sm border-2 border-gray-200 p-8 sm:p-12 text-center">
-          <p className="text-gray-500 text-sm sm:text-base">
+        <div className="bg-white rounded-xl shadow-sm border-2 border-neutral-200 p-8 sm:p-12 text-center">
+          <p className="text-neutral-500 text-sm sm:text-base">
             {searchTerm ? 'No members found matching your search.' : 'No members yet. Add your first member!'}
           </p>
         </div>
@@ -587,17 +587,17 @@ export default function MembersPage() {
           {/* Mobile Card View */}
           <div className="block md:hidden space-y-3">
             {filteredMembers.map((member) => (
-              <div key={member.id} className="bg-white rounded-lg border-2 border-gray-200 p-3 shadow-sm">
+              <div key={member.id} className="bg-white rounded-lg border-2 border-neutral-200 p-3 shadow-sm">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-3 flex-1 min-w-0">
                     <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                      <span className="text-blue-600 font-bold text-sm">
+                      <span className="text-primary-600 font-bold text-sm">
                         {member.full_name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-bold text-gray-900 truncate">{member.full_name}</p>
-                      <p className="text-xs text-gray-600 truncate">{member.priestship?.name || 'Unassigned'}</p>
+                      <p className="font-bold text-neutral-900 truncate">{member.full_name}</p>
+                      <p className="text-xs text-neutral-600 truncate">{member.priestship?.name || 'Unassigned'}</p>
                     </div>
                   </div>
                   <span className={`inline-flex px-2 py-1 text-xs font-bold rounded-full flex-shrink-0 ml-2 ${
@@ -610,13 +610,13 @@ export default function MembersPage() {
                 </div>
                 
                 {member.contact_info && (
-                  <p className="text-xs text-gray-600 mb-3 truncate">{member.contact_info}</p>
+                  <p className="text-xs text-neutral-600 mb-3 truncate">{member.contact_info}</p>
                 )}
                 
-                <div className="flex gap-2 pt-2 border-t border-gray-200">
+                <div className="flex gap-2 pt-2 border-t border-neutral-200">
                   <button
                     onClick={() => handleViewMember(member)}
-                    className="flex-1 flex items-center justify-center gap-2 p-2 text-blue-600 bg-blue-50 rounded-lg font-bold text-xs"
+                    className="flex-1 flex items-center justify-center gap-2 p-2 text-primary-600 bg-blue-50 rounded-lg font-bold text-xs"
                   >
                     <Eye size={16} />
                     View
@@ -645,35 +645,35 @@ export default function MembersPage() {
           </div>
 
           {/* Desktop Table View */}
-          <div className="hidden md:block bg-white rounded-xl shadow-sm border-2 border-gray-200 overflow-hidden">
+          <div className="hidden md:block bg-white rounded-xl shadow-sm border-2 border-neutral-200 overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50 border-b-2 border-gray-200">
+                <thead className="bg-neutral-50 border-b-2 border-neutral-200">
                   <tr>
-                    <th className="text-left px-6 py-3 text-xs font-bold text-gray-700 uppercase tracking-wider">Name</th>
-                    <th className="text-left px-6 py-3 text-xs font-bold text-gray-700 uppercase tracking-wider">Contact</th>
-                    <th className="text-left px-6 py-3 text-xs font-bold text-gray-700 uppercase tracking-wider">Priestship</th>
-                    <th className="text-left px-6 py-3 text-xs font-bold text-gray-700 uppercase tracking-wider">Status</th>
-                    <th className="text-right px-6 py-3 text-xs font-bold text-gray-700 uppercase tracking-wider">Actions</th>
+                    <th className="text-left px-6 py-3 text-xs font-bold text-neutral-700 uppercase tracking-wider">Name</th>
+                    <th className="text-left px-6 py-3 text-xs font-bold text-neutral-700 uppercase tracking-wider">Contact</th>
+                    <th className="text-left px-6 py-3 text-xs font-bold text-neutral-700 uppercase tracking-wider">Priestship</th>
+                    <th className="text-left px-6 py-3 text-xs font-bold text-neutral-700 uppercase tracking-wider">Status</th>
+                    <th className="text-right px-6 py-3 text-xs font-bold text-neutral-700 uppercase tracking-wider">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {filteredMembers.map((member) => (
-                    <tr key={member.id} className="hover:bg-gray-50">
+                    <tr key={member.id} className="hover:bg-neutral-50">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                            <span className="text-blue-600 font-bold">
+                            <span className="text-primary-600 font-bold">
                               {member.full_name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
                             </span>
                           </div>
-                          <span className="font-bold text-gray-900">{member.full_name}</span>
+                          <span className="font-bold text-neutral-900">{member.full_name}</span>
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-gray-600 font-medium">
+                      <td className="px-6 py-4 text-neutral-600 font-medium">
                         {member.contact_info || '-'}
                       </td>
-                      <td className="px-6 py-4 text-gray-600 font-medium">
+                      <td className="px-6 py-4 text-neutral-600 font-medium">
                         {member.priestship?.name || 'Unassigned'}
                       </td>
                       <td className="px-6 py-4">
@@ -689,7 +689,7 @@ export default function MembersPage() {
                         <div className="flex justify-end gap-2">
                           <button
                             onClick={() => handleViewMember(member)}
-                            className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                            className="p-2 text-neutral-400 hover:text-primary-600 hover:bg-blue-50 rounded-lg transition-colors"
                             title="View"
                           >
                             <Eye size={18} />
@@ -698,14 +698,14 @@ export default function MembersPage() {
                             <>
                               <button
                                 onClick={() => handleEditMember(member)}
-                                className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+                                className="p-2 text-neutral-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
                                 title="Edit"
                               >
                                 <Edit2 size={18} />
                               </button>
                               <button
                                 onClick={() => handleDeleteMember(member.id)}
-                                className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                                className="p-2 text-neutral-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                                 title="Delete"
                               >
                                 <Trash2 size={18} />
@@ -767,3 +767,4 @@ export default function MembersPage() {
     </div>
   );
 }
+

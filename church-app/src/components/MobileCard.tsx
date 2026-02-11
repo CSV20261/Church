@@ -24,3 +24,4 @@ export default function MobileCard({ children, className = '', onClick }: Mobile
     </div>
   );
 }
+

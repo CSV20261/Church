@@ -219,16 +219,16 @@ export default function OnboardingWizard({ userId }: OnboardingWizardProps) {
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden">
       {/* Progress bar */}
-      <div className="bg-gray-100 px-6 py-4">
+      <div className="bg-neutral-100 px-6 py-4">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-600">
+          <span className="text-sm font-medium text-neutral-600">
             Step {applicableSteps.indexOf(currentStep) + 1} of {applicableSteps.length}
           </span>
           <span className="text-sm font-medium text-green-700">
             {STEP_TITLES[currentStep]}
           </span>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="w-full bg-neutral-200 rounded-full h-2">
           <div
             className="bg-green-600 h-2 rounded-full transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
@@ -243,3 +243,4 @@ export default function OnboardingWizard({ userId }: OnboardingWizardProps) {
     </div>
   );
 }
+

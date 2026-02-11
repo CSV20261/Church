@@ -29,7 +29,7 @@ const ACTIVITY_TYPES = [
   { value: 'fellowship', label: 'Fellowship', color: 'bg-purple-100 text-purple-700' },
   { value: 'training', label: 'Training', color: 'bg-orange-100 text-orange-700' },
   { value: 'community', label: 'Community Service', color: 'bg-cyan-100 text-cyan-700' },
-  { value: 'other', label: 'Other', color: 'bg-gray-100 text-gray-700' },
+  { value: 'other', label: 'Other', color: 'bg-neutral-100 text-neutral-700' },
 ];
 
 export default function ActivitiesPage() {
@@ -143,8 +143,8 @@ export default function ActivitiesPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Activities</h1>
-          <p className="text-gray-600">Plan and manage church activities</p>
+          <h1 className="text-2xl font-bold text-neutral-900">Activities</h1>
+          <p className="text-neutral-600">Plan and manage church activities</p>
         </div>
         {userProfile && canManageActivities(userProfile.role) && (
           <button
@@ -165,11 +165,11 @@ export default function ActivitiesPage() {
 
       {/* Filter */}
       <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-1">Filter by Type</label>
+        <label className="block text-sm font-medium text-neutral-700 mb-1">Filter by Type</label>
         <select
           value={filterType}
           onChange={(e) => setFilterType(e.target.value)}
-          className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+          className="px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
         >
           <option value="">All Types</option>
           {ACTIVITY_TYPES.map(t => (
@@ -180,13 +180,13 @@ export default function ActivitiesPage() {
 
       {/* Upcoming Activities */}
       <div className="mb-8">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">
+        <h2 className="text-lg font-semibold text-neutral-900 mb-4">
           Upcoming Activities ({upcomingActivities.length})
         </h2>
         {upcomingActivities.length === 0 ? (
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 text-center">
-            <CalendarDays size={48} className="mx-auto text-gray-300 mb-4" />
-            <p className="text-gray-500">No upcoming activities scheduled</p>
+          <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-8 text-center">
+            <CalendarDays size={48} className="mx-auto text-neutral-300 mb-4" />
+            <p className="text-neutral-500">No upcoming activities scheduled</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -194,7 +194,7 @@ export default function ActivitiesPage() {
               const typeInfo = getActivityTypeInfo(activity.activity_type);
               const { date, time } = formatDateTime(activity.date_time);
               return (
-                <div key={activity.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                <div key={activity.id} className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4 hover:shadow-md transition-shadow">
                   <div className="flex justify-between items-start mb-3">
                     <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${typeInfo.color}`}>
                       {typeInfo.label}
@@ -206,24 +206,24 @@ export default function ActivitiesPage() {
                             setSelectedActivity(activity);
                             setIsEditModalOpen(true);
                           }}
-                          className="p-1.5 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg"
+                          className="p-1.5 text-neutral-400 hover:text-green-600 hover:bg-green-50 rounded-lg"
                         >
                           <Edit2 size={16} />
                         </button>
                         <button
                           onClick={() => handleDeleteActivity(activity.id)}
-                          className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg"
+                          className="p-1.5 text-neutral-400 hover:text-red-600 hover:bg-red-50 rounded-lg"
                         >
                           <Trash2 size={16} />
                         </button>
                       </div>
                     )}
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{activity.title}</h3>
+                  <h3 className="font-semibold text-neutral-900 mb-2">{activity.title}</h3>
                   {activity.description && (
-                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">{activity.description}</p>
+                    <p className="text-sm text-neutral-600 mb-3 line-clamp-2">{activity.description}</p>
                   )}
-                  <div className="space-y-1 text-sm text-gray-500">
+                  <div className="space-y-1 text-sm text-neutral-500">
                     <div className="flex items-center gap-2">
                       <Clock size={14} />
                       <span>{date} at {time}</span>
@@ -245,16 +245,16 @@ export default function ActivitiesPage() {
       {/* Past Activities */}
       {pastActivities.length > 0 && (
         <div>
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-lg font-semibold text-neutral-900 mb-4">
             Past Activities ({pastActivities.length})
           </h2>
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-neutral-50 border-b border-neutral-200">
                 <tr>
-                  <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Activity</th>
-                  <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Type</th>
-                  <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Date</th>
+                  <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase">Activity</th>
+                  <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase">Type</th>
+                  <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase">Date</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -262,14 +262,14 @@ export default function ActivitiesPage() {
                   const typeInfo = getActivityTypeInfo(activity.activity_type);
                   const { date } = formatDateTime(activity.date_time);
                   return (
-                    <tr key={activity.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 font-medium text-gray-900">{activity.title}</td>
+                    <tr key={activity.id} className="hover:bg-neutral-50">
+                      <td className="px-6 py-4 font-medium text-neutral-900">{activity.title}</td>
                       <td className="px-6 py-4">
                         <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${typeInfo.color}`}>
                           {typeInfo.label}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-gray-500">{date}</td>
+                      <td className="px-6 py-4 text-neutral-500">{date}</td>
                     </tr>
                   );
                 })}
@@ -412,7 +412,7 @@ function ActivityModal({
       <div className="bg-white rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-lg font-semibold">{isEdit ? 'Edit Activity' : 'New Activity'}</h2>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
+          <button onClick={onClose} className="p-2 hover:bg-neutral-100 rounded-lg">
             <X size={20} />
           </button>
         </div>
@@ -423,22 +423,22 @@ function ActivityModal({
             </div>
           )}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Title *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Title *</label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               placeholder="Activity title"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Type</label>
             <select
               value={activityType}
               onChange={(e) => setActivityType(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
             >
               {ACTIVITY_TYPES.map(t => (
                 <option key={t.value} value={t.value}>{t.label}</option>
@@ -446,31 +446,31 @@ function ActivityModal({
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Date & Time *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Date & Time *</label>
             <input
               type="datetime-local"
               value={dateTime}
               onChange={(e) => setDateTime(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Location</label>
             <input
               type="text"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               placeholder="Where will this take place?"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Description</label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               rows={3}
               placeholder="Activity details..."
             />
@@ -479,7 +479,7 @@ function ActivityModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+              className="flex-1 px-4 py-2 border border-neutral-300 text-neutral-700 rounded-lg hover:bg-neutral-50"
             >
               Cancel
             </button>
@@ -496,3 +496,4 @@ function ActivityModal({
     </div>
   );
 }
+

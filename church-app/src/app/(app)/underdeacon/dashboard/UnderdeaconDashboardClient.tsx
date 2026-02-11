@@ -310,3 +310,4 @@ function ActivityItem({ name, area, type, status, color = "text-emerald-600" }: 
     </div>
   );
 }
+

@@ -46,8 +46,8 @@ export default function StepAdditionalResponsibilities({
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Additional Responsibilities</h2>
-        <p className="text-gray-600 text-sm">
+        <h2 className="text-xl font-semibold text-neutral-800 mb-2">Additional Responsibilities</h2>
+        <p className="text-neutral-600 text-sm">
           Select any additional ministry areas you&apos;re involved in. This is optional.
         </p>
       </div>
@@ -62,11 +62,11 @@ export default function StepAdditionalResponsibilities({
               className={`w-full p-4 rounded-lg border-2 text-left transition-all flex items-center gap-3 ${
                 isSelected
                   ? 'border-green-600 bg-green-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                  : 'border-neutral-200 hover:border-neutral-300'
               }`}
             >
               <div className={`w-6 h-6 rounded border-2 flex items-center justify-center ${
-                isSelected ? 'bg-green-600 border-green-600' : 'border-gray-300'
+                isSelected ? 'bg-green-600 border-green-600' : 'border-neutral-300'
               }`}>
                 {isSelected && (
                   <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -75,7 +75,7 @@ export default function StepAdditionalResponsibilities({
                 )}
               </div>
               <span className="text-xl">{option.icon}</span>
-              <span className="font-medium text-gray-800">
+              <span className="font-medium text-neutral-800">
                 {formatSpecialistType(option.type)} Division
               </span>
             </button>
@@ -94,7 +94,7 @@ export default function StepAdditionalResponsibilities({
       <div className="flex justify-between pt-4">
         <button
           onClick={onBack}
-          className="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+          className="px-6 py-2 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 transition-colors"
         >
           Back
         </button>
@@ -108,3 +108,4 @@ export default function StepAdditionalResponsibilities({
     </div>
   );
 }
+

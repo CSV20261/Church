@@ -46,17 +46,17 @@ export default function OnboardingPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="min-h-screen flex items-center justify-center bg-neutral-100">
         <div className="text-center">
           <div className="w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-neutral-600">Loading...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8 px-4">
+    <div className="min-h-screen bg-neutral-100 py-8 px-4">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -64,7 +64,7 @@ export default function OnboardingPage() {
             <span className="text-3xl text-white">✝</span>
           </div>
           <h1 className="text-2xl font-bold text-green-800">Older Apostolic Church</h1>
-          <p className="text-gray-600 mt-2">Complete your registration</p>
+          <p className="text-neutral-600 mt-2">Complete your registration</p>
         </div>
 
         {/* Wizard */}
@@ -73,3 +73,4 @@ export default function OnboardingPage() {
     </div>
   );
 }
+

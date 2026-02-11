@@ -136,7 +136,7 @@ export default function ProfilePage() {
   if (!userProfile) {
     return (
       <div className="p-6 text-center">
-        <p className="text-gray-500">Unable to load profile</p>
+        <p className="text-neutral-500">Unable to load profile</p>
       </div>
     );
   }
@@ -145,8 +145,8 @@ export default function ProfilePage() {
     <div className="p-3 sm:p-4 md:p-6 lg:p-8 max-w-4xl mx-auto w-full overflow-x-hidden">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">My Profile</h1>
-        <p className="text-gray-600">View and manage your personal information</p>
+        <h1 className="text-2xl font-bold text-neutral-900">My Profile</h1>
+        <p className="text-neutral-600">View and manage your personal information</p>
       </div>
 
       {/* Message */}
@@ -161,25 +161,25 @@ export default function ProfilePage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Profile Card */}
         <div className="lg:col-span-2">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
             {/* Cover & Avatar */}
             <div className="h-32 bg-gradient-to-r from-blue-600 to-blue-400"></div>
             <div className="px-6 pb-6">
               <div className="flex flex-col sm:flex-row sm:items-end gap-4 -mt-12">
                 <div className="w-24 h-24 rounded-full bg-white border-4 border-white shadow-lg flex items-center justify-center">
-                  <span className="text-3xl font-bold text-blue-600">
+                  <span className="text-3xl font-bold text-primary-600">
                     {userProfile.first_name?.[0]}{userProfile.last_name?.[0]}
                   </span>
                 </div>
                 <div className="flex-1 sm:pb-2">
-                  <h2 className="text-xl font-bold text-gray-900">
+                  <h2 className="text-xl font-bold text-neutral-900">
                     {userProfile.first_name} {userProfile.last_name}
                   </h2>
-                  <p className="text-gray-500">{formatRole(userProfile.role)}</p>
+                  <p className="text-neutral-500">{formatRole(userProfile.role)}</p>
                 </div>
                 <button
                   onClick={() => setIsEditing(!isEditing)}
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-lg transition-colors"
                 >
                   {isEditing ? <X size={18} /> : <Edit2 size={18} />}
                   {isEditing ? 'Cancel' : 'Edit Profile'}
@@ -193,38 +193,38 @@ export default function ProfilePage() {
                   <div className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                        <label className="block text-sm font-medium text-neutral-700 mb-1">First Name</label>
                         <input
                           type="text"
                           value={firstName}
                           onChange={(e) => setFirstName(e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                        <label className="block text-sm font-medium text-neutral-700 mb-1">Last Name</label>
                         <input
                           type="text"
                           value={lastName}
                           onChange={(e) => setLastName(e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                         />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                      <label className="block text-sm font-medium text-neutral-700 mb-1">Phone Number</label>
                       <input
                         type="tel"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                         placeholder="+27 xxx xxx xxxx"
                       />
                     </div>
                     <button
                       onClick={handleSave}
                       disabled={saving}
-                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                      className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
                     >
                       <Save size={18} />
                       {saving ? 'Saving...' : 'Save Changes'}
@@ -233,32 +233,32 @@ export default function ProfilePage() {
                 ) : (
                   /* Display Info */
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <Mail size={20} className="text-gray-400" />
+                    <div className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg">
+                      <Mail size={20} className="text-neutral-400" />
                       <div>
-                        <p className="text-xs text-gray-500">Email</p>
-                        <p className="font-medium text-gray-900">{userProfile.email}</p>
+                        <p className="text-xs text-neutral-500">Email</p>
+                        <p className="font-medium text-neutral-900">{userProfile.email}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <Phone size={20} className="text-gray-400" />
+                    <div className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg">
+                      <Phone size={20} className="text-neutral-400" />
                       <div>
-                        <p className="text-xs text-gray-500">Phone</p>
-                        <p className="font-medium text-gray-900">{userProfile.phone || 'Not set'}</p>
+                        <p className="text-xs text-neutral-500">Phone</p>
+                        <p className="font-medium text-neutral-900">{userProfile.phone || 'Not set'}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <Shield size={20} className="text-gray-400" />
+                    <div className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg">
+                      <Shield size={20} className="text-neutral-400" />
                       <div>
-                        <p className="text-xs text-gray-500">Role</p>
-                        <p className="font-medium text-gray-900">{formatRole(userProfile.role)}</p>
+                        <p className="text-xs text-neutral-500">Role</p>
+                        <p className="font-medium text-neutral-900">{formatRole(userProfile.role)}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <Calendar size={20} className="text-gray-400" />
+                    <div className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg">
+                      <Calendar size={20} className="text-neutral-400" />
                       <div>
-                        <p className="text-xs text-gray-500">Member Since</p>
-                        <p className="font-medium text-gray-900">
+                        <p className="text-xs text-neutral-500">Member Since</p>
+                        <p className="font-medium text-neutral-900">
                           {new Date(userProfile.created_at).toLocaleDateString('en-ZA', { month: 'long', year: 'numeric' })}
                         </p>
                       </div>
@@ -273,11 +273,11 @@ export default function ProfilePage() {
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Status Card */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
-            <h3 className="font-semibold text-gray-900 mb-3">Account Status</h3>
+          <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
+            <h3 className="font-semibold text-neutral-900 mb-3">Account Status</h3>
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">Status</span>
+                <span className="text-neutral-600">Status</span>
                 <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
                   userProfile.approval_status === 'approved' 
                     ? 'bg-green-100 text-green-700' 
@@ -290,20 +290,20 @@ export default function ProfilePage() {
           </div>
 
           {/* Assignments Card */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
-            <h3 className="font-semibold text-gray-900 mb-3">Assignments</h3>
+          <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
+            <h3 className="font-semibold text-neutral-900 mb-3">Assignments</h3>
             {assignments.length === 0 ? (
-              <p className="text-gray-500 text-sm">No active assignments</p>
+              <p className="text-neutral-500 text-sm">No active assignments</p>
             ) : (
               <div className="space-y-2">
                 {assignments.map((assignment) => (
-                  <div key={assignment.id} className="p-3 bg-gray-50 rounded-lg">
+                  <div key={assignment.id} className="p-3 bg-neutral-50 rounded-lg">
                     <div className="flex items-center gap-2">
-                      <Building size={16} className="text-gray-400" />
-                      <span className="font-medium text-gray-900">{getAssignmentName(assignment)}</span>
+                      <Building size={16} className="text-neutral-400" />
+                      <span className="font-medium text-neutral-900">{getAssignmentName(assignment)}</span>
                     </div>
                     <div className="flex items-center gap-2 mt-1">
-                      <span className="text-xs text-gray-500 capitalize">{assignment.unit_type}</span>
+                      <span className="text-xs text-neutral-500 capitalize">{assignment.unit_type}</span>
                       {assignment.is_primary && (
                         <span className="text-xs bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded">Primary</span>
                       )}
@@ -320,13 +320,13 @@ export default function ProfilePage() {
           </div>
 
           {/* Quick Links */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
-            <h3 className="font-semibold text-gray-900 mb-3">Quick Links</h3>
+          <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
+            <h3 className="font-semibold text-neutral-900 mb-3">Quick Links</h3>
             <div className="space-y-2">
-              <a href="/settings" className="block p-3 bg-gray-50 hover:bg-gray-100 rounded-lg text-gray-700 transition-colors">
+              <a href="/settings" className="block p-3 bg-neutral-50 hover:bg-neutral-100 rounded-lg text-neutral-700 transition-colors">
                 ⚙️ Account Settings
               </a>
-              <a href="/dashboard" className="block p-3 bg-gray-50 hover:bg-gray-100 rounded-lg text-gray-700 transition-colors">
+              <a href="/dashboard" className="block p-3 bg-neutral-50 hover:bg-neutral-100 rounded-lg text-neutral-700 transition-colors">
                 📊 Dashboard
               </a>
             </div>
@@ -336,3 +336,4 @@ export default function ProfilePage() {
     </div>
   );
 }
+

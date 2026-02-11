@@ -151,9 +151,9 @@ export default function ViewSwitcher({
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
-          <div className="px-3 py-2 border-b border-gray-100">
-            <p className="text-xs font-medium text-gray-500 uppercase">Switch View</p>
+        <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-neutral-200 py-2 z-50">
+          <div className="px-3 py-2 border-b border-neutral-100">
+            <p className="text-xs font-medium text-neutral-500 uppercase">Switch View</p>
           </div>
           
           {/* Primary assignment */}
@@ -161,16 +161,16 @@ export default function ViewSwitcher({
             <button
               key={assignment.id}
               onClick={() => handleSelect(assignment)}
-              className={`w-full px-3 py-2 flex items-center gap-3 hover:bg-gray-50 transition-colors ${
+              className={`w-full px-3 py-2 flex items-center gap-3 hover:bg-neutral-50 transition-colors ${
                 currentContext?.assignmentId === assignment.id ? 'bg-green-50' : ''
               }`}
             >
               <span className="text-lg">{getAssignmentIcon(assignment)}</span>
               <div className="flex-1 text-left">
-                <p className="text-sm font-medium text-gray-800">
+                <p className="text-sm font-medium text-neutral-800">
                   {getAssignmentLabel(assignment)}
                 </p>
-                <p className="text-xs text-gray-500">Primary</p>
+                <p className="text-xs text-neutral-500">Primary</p>
               </div>
               {currentContext?.assignmentId === assignment.id && (
                 <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -183,23 +183,23 @@ export default function ViewSwitcher({
           {/* Additional assignments */}
           {assignments.filter(a => a.assignment_type === 'additional').length > 0 && (
             <>
-              <div className="px-3 py-2 border-t border-gray-100 mt-1">
-                <p className="text-xs font-medium text-gray-500 uppercase">Additional</p>
+              <div className="px-3 py-2 border-t border-neutral-100 mt-1">
+                <p className="text-xs font-medium text-neutral-500 uppercase">Additional</p>
               </div>
               {assignments.filter(a => a.assignment_type === 'additional').map((assignment) => (
                 <button
                   key={assignment.id}
                   onClick={() => handleSelect(assignment)}
-                  className={`w-full px-3 py-2 flex items-center gap-3 hover:bg-gray-50 transition-colors ${
+                  className={`w-full px-3 py-2 flex items-center gap-3 hover:bg-neutral-50 transition-colors ${
                     currentContext?.assignmentId === assignment.id ? 'bg-green-50' : ''
                   }`}
                 >
                   <span className="text-lg">{getAssignmentIcon(assignment)}</span>
                   <div className="flex-1 text-left">
-                    <p className="text-sm font-medium text-gray-800">
+                    <p className="text-sm font-medium text-neutral-800">
                       {getAssignmentLabel(assignment)}
                     </p>
-                    <p className="text-xs text-gray-500">Additional</p>
+                    <p className="text-xs text-neutral-500">Additional</p>
                   </div>
                   {currentContext?.assignmentId === assignment.id && (
                     <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -215,3 +215,4 @@ export default function ViewSwitcher({
     </div>
   );
 }
+

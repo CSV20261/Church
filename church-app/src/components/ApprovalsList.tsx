@@ -76,7 +76,7 @@ export default function ApprovalsList({
           className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
             filter === 'can_approve'
               ? 'bg-green-700 text-white'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
           }`}
         >
           I Can Approve ({profiles.filter((p) => canApprove(currentUserRole, p.role)).length})
@@ -86,7 +86,7 @@ export default function ApprovalsList({
           className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
             filter === 'all'
               ? 'bg-green-700 text-white'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
           }`}
         >
           All Pending ({profiles.length})
@@ -109,7 +109,7 @@ export default function ApprovalsList({
           <p className="text-2xl font-bold text-blue-800">
             {profiles.filter((p) => p.role === 'member').length}
           </p>
-          <p className="text-sm text-blue-600">New Members</p>
+          <p className="text-sm text-primary-600">New Members</p>
         </div>
       </div>
 
@@ -119,8 +119,8 @@ export default function ApprovalsList({
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-3xl">✓</span>
           </div>
-          <h3 className="text-lg font-semibold text-gray-800">All Caught Up!</h3>
-          <p className="text-gray-600 mt-2">
+          <h3 className="text-lg font-semibold text-neutral-800">All Caught Up!</h3>
+          <p className="text-neutral-600 mt-2">
             {filter === 'can_approve' 
               ? 'No pending registrations for you to approve.'
               : 'No pending registrations at this time.'}
@@ -143,3 +143,4 @@ export default function ApprovalsList({
     </div>
   );
 }
+

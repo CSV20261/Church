@@ -90,8 +90,8 @@ export default function ReportGiftModal({
 
       <div className="relative bg-white rounded-xl shadow-xl w-full max-w-lg mx-4 p-6 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-gray-800">Report Spiritual Gift</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors">
+          <h2 className="text-xl font-semibold text-neutral-800">Report Spiritual Gift</h2>
+          <button onClick={onClose} className="text-neutral-400 hover:text-neutral-600 transition-colors">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -108,11 +108,11 @@ export default function ReportGiftModal({
           {/* Member selector (for priests) */}
           {canSelectMember && !preselectedMemberId && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Member *</label>
+              <label className="block text-sm font-medium text-neutral-700 mb-1">Member *</label>
               <select
                 value={selectedMemberId}
                 onChange={(e) => setSelectedMemberId(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 bg-white"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-neutral-900 bg-white"
                 required
               >
                 <option value="">Select a member...</option>
@@ -127,11 +127,11 @@ export default function ReportGiftModal({
 
           {/* Gift type */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Gift Type *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Gift Type *</label>
             <select
               value={giftType}
               onChange={(e) => setGiftType(e.target.value as GiftType)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 bg-white"
+              className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-neutral-900 bg-white"
             >
               <option value="dream">🌙 Dream</option>
               <option value="vision">👁️ Vision</option>
@@ -145,12 +145,12 @@ export default function ReportGiftModal({
 
           {/* Title */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Title / Summary *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Title / Summary *</label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900"
+              className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-neutral-900"
               placeholder="Brief title for this spiritual experience"
               required
             />
@@ -158,35 +158,35 @@ export default function ReportGiftModal({
 
           {/* Date */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Date Received *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Date Received *</label>
             <input
               type="date"
               value={dateReceived}
               onChange={(e) => setDateReceived(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900"
+              className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-neutral-900"
               required
             />
           </div>
 
           {/* Description */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Full Description</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Full Description</label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900"
+              className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-neutral-900"
               placeholder="Describe the dream, vision, or prophecy in detail..."
               rows={4}
             />
           </div>
 
           {/* Private checkbox */}
-          <label className="flex items-center gap-2 text-sm text-gray-600">
+          <label className="flex items-center gap-2 text-sm text-neutral-600">
             <input
               type="checkbox"
               checked={isPrivate}
               onChange={(e) => setIsPrivate(e.target.checked)}
-              className="rounded border-gray-300 text-purple-600 focus:ring-purple-500"
+              className="rounded border-neutral-300 text-purple-600 focus:ring-purple-500"
             />
             Keep this private (only visible to assigned priest)
           </label>
@@ -196,7 +196,7 @@ export default function ReportGiftModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex-1 px-4 py-2 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 transition-colors"
             >
               Cancel
             </button>
@@ -213,3 +213,4 @@ export default function ReportGiftModal({
     </div>
   );
 }
+

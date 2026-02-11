@@ -65,13 +65,13 @@ export default async function PriestDashboard() {
   const totalRecruitment = recruitmentList.length;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-neutral-50 p-6">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-neutral-900">
           Branch Overview
         </h1>
-        <p className="text-gray-600 mt-2">
+        <p className="text-neutral-600 mt-2">
           Welcome, {profile?.full_name || 'Priest'} - Centurion South Priestship
         </p>
       </div>
@@ -79,24 +79,24 @@ export default async function PriestDashboard() {
       {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         <div className="bg-white rounded-lg shadow p-6 border-l-4 border-purple-500">
-          <div className="text-sm text-gray-600 font-medium">Total Members</div>
-          <div className="text-3xl font-bold text-gray-900 mt-2">{totalMembers}</div>
-          <div className="text-xs text-gray-500 mt-1">Active in branch</div>
+          <div className="text-sm text-neutral-600 font-medium">Total Members</div>
+          <div className="text-3xl font-bold text-neutral-900 mt-2">{totalMembers}</div>
+          <div className="text-xs text-neutral-500 mt-1">Active in branch</div>
         </div>
         <div className="bg-white rounded-lg shadow p-6 border-l-4 border-green-500">
-          <div className="text-sm text-gray-600 font-medium">Approved</div>
-          <div className="text-3xl font-bold text-gray-900 mt-2">{approvedMembers}</div>
-          <div className="text-xs text-gray-500 mt-1">Verified members</div>
+          <div className="text-sm text-neutral-600 font-medium">Approved</div>
+          <div className="text-3xl font-bold text-neutral-900 mt-2">{approvedMembers}</div>
+          <div className="text-xs text-neutral-500 mt-1">Verified members</div>
         </div>
         <div className="bg-white rounded-lg shadow p-6 border-l-4 border-yellow-500">
-          <div className="text-sm text-gray-600 font-medium">Pending</div>
-          <div className="text-3xl font-bold text-gray-900 mt-2">{pendingApprovals}</div>
-          <div className="text-xs text-gray-500 mt-1">Awaiting approval</div>
+          <div className="text-sm text-neutral-600 font-medium">Pending</div>
+          <div className="text-3xl font-bold text-neutral-900 mt-2">{pendingApprovals}</div>
+          <div className="text-xs text-neutral-500 mt-1">Awaiting approval</div>
         </div>
         <div className="bg-white rounded-lg shadow p-6 border-l-4 border-blue-500">
-          <div className="text-sm text-gray-600 font-medium">Recruitment</div>
-          <div className="text-3xl font-bold text-gray-900 mt-2">{totalRecruitment}</div>
-          <div className="text-xs text-gray-500 mt-1">In pipeline</div>
+          <div className="text-sm text-neutral-600 font-medium">Recruitment</div>
+          <div className="text-3xl font-bold text-neutral-900 mt-2">{totalRecruitment}</div>
+          <div className="text-xs text-neutral-500 mt-1">In pipeline</div>
         </div>
       </div>
 
@@ -104,26 +104,26 @@ export default async function PriestDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         {/* Members Overview */}
         <div className="bg-white rounded-lg shadow">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
+          <div className="px-6 py-4 border-b border-neutral-200">
+            <h2 className="text-xl font-semibold text-neutral-900">
               Branch Members
             </h2>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-neutral-600 mt-1">
               Member directory for your priestship
             </p>
           </div>
           <div className="p-6">
             {memberList.length === 0 ? (
               <div className="text-center py-8">
-                <p className="text-gray-500">No members found</p>
+                <p className="text-neutral-500">No members found</p>
               </div>
             ) : (
               <div className="space-y-3 max-h-96 overflow-y-auto">
                 {memberList.map((member) => (
-                  <div key={member.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div key={member.id} className="flex items-center justify-between p-3 bg-neutral-50 rounded-lg">
                     <div>
-                      <p className="font-medium text-gray-900">{member.full_name}</p>
-                      <p className="text-sm text-gray-600 capitalize">{member.role}</p>
+                      <p className="font-medium text-neutral-900">{member.full_name}</p>
+                      <p className="text-sm text-neutral-600 capitalize">{member.role}</p>
                     </div>
                     <div>
                       {member.is_approved ? (
@@ -145,26 +145,26 @@ export default async function PriestDashboard() {
 
         {/* Recruitment Pipeline */}
         <div className="bg-white rounded-lg shadow">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
+          <div className="px-6 py-4 border-b border-neutral-200">
+            <h2 className="text-xl font-semibold text-neutral-900">
               Recruitment Reports
             </h2>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-neutral-600 mt-1">
               View underdeacon soul-winning pipeline
             </p>
           </div>
           <div className="p-6">
             {recruitmentList.length === 0 ? (
               <div className="text-center py-8">
-                <p className="text-gray-500">No recruitment records</p>
+                <p className="text-neutral-500">No recruitment records</p>
               </div>
             ) : (
               <div className="space-y-3 max-h-96 overflow-y-auto">
                 {recruitmentList.map((record) => (
-                  <div key={record.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div key={record.id} className="flex items-center justify-between p-3 bg-neutral-50 rounded-lg">
                     <div>
-                      <p className="font-medium text-gray-900">{record.soul_name}</p>
-                      <p className="text-sm text-gray-600 capitalize">{record.status.replace('_', ' ')}</p>
+                      <p className="font-medium text-neutral-900">{record.soul_name}</p>
+                      <p className="text-sm text-neutral-600 capitalize">{record.status.replace('_', ' ')}</p>
                     </div>
                     <div>
                       <span className={`px-2 py-1 text-xs font-semibold rounded-full ${
@@ -187,22 +187,23 @@ export default async function PriestDashboard() {
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow cursor-pointer">
-          <h3 className="text-lg font-semibold text-gray-900">👥 Members</h3>
-          <p className="text-sm text-gray-600 mt-2">Manage member directory</p>
+          <h3 className="text-lg font-semibold text-neutral-900">👥 Members</h3>
+          <p className="text-sm text-neutral-600 mt-2">Manage member directory</p>
         </div>
         <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow cursor-pointer">
-          <h3 className="text-lg font-semibold text-gray-900">✓ Attendance</h3>
-          <p className="text-sm text-gray-600 mt-2">Track service attendance</p>
+          <h3 className="text-lg font-semibold text-neutral-900">✓ Attendance</h3>
+          <p className="text-sm text-neutral-600 mt-2">Track service attendance</p>
         </div>
         <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow cursor-pointer">
-          <h3 className="text-lg font-semibold text-gray-900">💰 Tithing</h3>
-          <p className="text-sm text-gray-600 mt-2">Financial tracking</p>
+          <h3 className="text-lg font-semibold text-neutral-900">💰 Tithing</h3>
+          <p className="text-sm text-neutral-600 mt-2">Financial tracking</p>
         </div>
         <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow cursor-pointer">
-          <h3 className="text-lg font-semibold text-gray-900">📊 Reports</h3>
-          <p className="text-sm text-gray-600 mt-2">Generate branch reports</p>
+          <h3 className="text-lg font-semibold text-neutral-900">📊 Reports</h3>
+          <p className="text-sm text-neutral-600 mt-2">Generate branch reports</p>
         </div>
       </div>
     </div>
   );
 }
+

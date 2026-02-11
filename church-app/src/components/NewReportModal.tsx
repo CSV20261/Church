@@ -135,8 +135,8 @@ export default function NewReportModal({
 
       <div className="relative bg-white rounded-xl shadow-xl w-full max-w-lg mx-4 p-6 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-gray-800">New Report</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+          <h2 className="text-xl font-semibold text-neutral-800">New Report</h2>
+          <button onClick={onClose} className="text-neutral-400 hover:text-neutral-600">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -152,11 +152,11 @@ export default function NewReportModal({
         <form onSubmit={handleSubmit} className="space-y-4">
           {canSelectMember && !preselectedMemberId && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Member *</label>
+              <label className="block text-sm font-medium text-neutral-700 mb-1">Member *</label>
               <select
                 value={selectedMemberId}
                 onChange={(e) => setSelectedMemberId(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-gray-900 bg-white"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-neutral-900 bg-white"
                 required
               >
                 <option value="">Select a member...</option>
@@ -170,11 +170,11 @@ export default function NewReportModal({
           )}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Report Type *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Report Type *</label>
             <select
               value={reportType}
               onChange={(e) => setReportType(e.target.value as WellnessReportType)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-gray-900 bg-white"
+              className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-neutral-900 bg-white"
             >
               <option value="wellness">🏥 Wellness / Illness</option>
               <option value="absence">📅 Planned Absence</option>
@@ -185,12 +185,12 @@ export default function NewReportModal({
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Title *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Title *</label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-gray-900"
+              className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-neutral-900"
               placeholder="Brief description"
               required
             />
@@ -198,33 +198,33 @@ export default function NewReportModal({
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Start Date *</label>
+              <label className="block text-sm font-medium text-neutral-700 mb-1">Start Date *</label>
               <input
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-gray-900"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-neutral-900"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">End Date</label>
+              <label className="block text-sm font-medium text-neutral-700 mb-1">End Date</label>
               <input
                 type="date"
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
                 min={startDate}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-gray-900"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-neutral-900"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Details</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Details</label>
             <textarea
               value={details}
               onChange={(e) => setDetails(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-gray-900"
+              className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-yellow-500 text-neutral-900"
               placeholder="Additional details..."
               rows={3}
             />
@@ -236,7 +236,7 @@ export default function NewReportModal({
                 type="checkbox"
                 checked={autoMarkAbsent}
                 onChange={(e) => setAutoMarkAbsent(e.target.checked)}
-                className="rounded border-gray-300 text-orange-600 focus:ring-orange-500"
+                className="rounded border-neutral-300 text-orange-600 focus:ring-orange-500"
               />
               <div>
                 <span className="text-sm font-medium text-orange-800">Auto-mark as excused</span>
@@ -251,7 +251,7 @@ export default function NewReportModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50"
+              className="flex-1 px-4 py-2 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50"
             >
               Cancel
             </button>
@@ -268,3 +268,4 @@ export default function NewReportModal({
     </div>
   );
 }
+

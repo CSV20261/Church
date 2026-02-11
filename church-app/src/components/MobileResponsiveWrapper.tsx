@@ -18,3 +18,4 @@ export default function MobileResponsiveWrapper({ children, className = '' }: Mo
     </div>
   );
 }
+

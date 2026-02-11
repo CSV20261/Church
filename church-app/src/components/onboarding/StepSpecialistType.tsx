@@ -56,8 +56,8 @@ export default function StepSpecialistType({ data, updateData, onNext, onBack }:
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Specialist Ministry Focus</h2>
-        <p className="text-gray-600 text-sm">
+        <h2 className="text-xl font-semibold text-neutral-800 mb-2">Specialist Ministry Focus</h2>
+        <p className="text-neutral-600 text-sm">
           Select your primary ministry focus area.
         </p>
       </div>
@@ -70,14 +70,14 @@ export default function StepSpecialistType({ data, updateData, onNext, onBack }:
             className={`p-4 rounded-lg border-2 text-left transition-all ${
               data.specialistType === option.type
                 ? 'border-green-600 bg-green-50'
-                : 'border-gray-200 hover:border-gray-300'
+                : 'border-neutral-200 hover:border-neutral-300'
             }`}
           >
             <span className="text-2xl">{option.icon}</span>
-            <p className="font-medium text-gray-800 mt-2">
+            <p className="font-medium text-neutral-800 mt-2">
               {formatSpecialistType(option.type)}
             </p>
-            <p className="text-xs text-gray-500 mt-1">{option.description}</p>
+            <p className="text-xs text-neutral-500 mt-1">{option.description}</p>
           </button>
         ))}
       </div>
@@ -85,7 +85,7 @@ export default function StepSpecialistType({ data, updateData, onNext, onBack }:
       <div className="flex justify-between pt-4">
         <button
           onClick={onBack}
-          className="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+          className="px-6 py-2 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 transition-colors"
         >
           Back
         </button>
@@ -100,3 +100,4 @@ export default function StepSpecialistType({ data, updateData, onNext, onBack }:
     </div>
   );
 }
+

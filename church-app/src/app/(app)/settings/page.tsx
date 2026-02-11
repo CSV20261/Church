@@ -138,8 +138,8 @@ export default function SettingsPage() {
     <div className="p-3 sm:p-4 md:p-6 lg:p-8 max-w-4xl mx-auto w-full overflow-x-hidden">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
-        <p className="text-gray-600">Manage your account and preferences</p>
+        <h1 className="text-2xl font-bold text-neutral-900">Settings</h1>
+        <p className="text-neutral-600">Manage your account and preferences</p>
       </div>
 
       {/* Message */}
@@ -154,11 +154,11 @@ export default function SettingsPage() {
       <div className="flex flex-col md:flex-row gap-6">
         {/* Sidebar */}
         <div className="md:w-64 flex-shrink-0">
-          <nav className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+          <nav className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
             <button
               onClick={() => setActiveTab('profile')}
               className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
-                activeTab === 'profile' ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-600' : 'hover:bg-gray-50'
+                activeTab === 'profile' ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-600' : 'hover:bg-neutral-50'
               }`}
             >
               <User size={20} />
@@ -167,7 +167,7 @@ export default function SettingsPage() {
             <button
               onClick={() => setActiveTab('security')}
               className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
-                activeTab === 'security' ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-600' : 'hover:bg-gray-50'
+                activeTab === 'security' ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-600' : 'hover:bg-neutral-50'
               }`}
             >
               <Shield size={20} />
@@ -176,7 +176,7 @@ export default function SettingsPage() {
             <button
               onClick={() => setActiveTab('notifications')}
               className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
-                activeTab === 'notifications' ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-600' : 'hover:bg-gray-50'
+                activeTab === 'notifications' ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-600' : 'hover:bg-neutral-50'
               }`}
             >
               <Bell size={20} />
@@ -185,7 +185,7 @@ export default function SettingsPage() {
             <button
               onClick={() => setActiveTab('organization')}
               className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
-                activeTab === 'organization' ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-600' : 'hover:bg-gray-50'
+                activeTab === 'organization' ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-600' : 'hover:bg-neutral-50'
               }`}
             >
               <Building size={20} />
@@ -198,20 +198,20 @@ export default function SettingsPage() {
         <div className="flex-1">
           {/* Profile Tab */}
           {activeTab === 'profile' && (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-6">Profile Information</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-6">Profile Information</h2>
               
               {/* Current Info Display */}
-              <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+              <div className="mb-6 p-4 bg-neutral-50 rounded-lg">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
-                    <span className="text-xl font-bold text-blue-600">
+                    <span className="text-xl font-bold text-primary-600">
                       {firstName[0]}{lastName[0]}
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">{firstName} {lastName}</h3>
-                    <p className="text-sm text-gray-500">{userProfile?.email}</p>
+                    <h3 className="font-semibold text-neutral-900">{firstName} {lastName}</h3>
+                    <p className="text-sm text-neutral-500">{userProfile?.email}</p>
                     <span className="inline-flex mt-1 px-2 py-0.5 text-xs font-medium rounded-full bg-blue-100 text-blue-700">
                       {formatRole(userProfile?.role || 'member')}
                     </span>
@@ -222,49 +222,49 @@ export default function SettingsPage() {
               <form onSubmit={handleSaveProfile} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                    <label className="block text-sm font-medium text-neutral-700 mb-1">First Name</label>
                     <input
                       type="text"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                    <label className="block text-sm font-medium text-neutral-700 mb-1">Last Name</label>
                     <input
                       type="text"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-1">Phone Number</label>
                   <input
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     placeholder="+27 xxx xxx xxxx"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-1">Email</label>
                   <input
                     type="email"
                     value={userProfile?.email || ''}
                     disabled
-                    className="w-full px-3 py-2 border border-gray-200 rounded-lg bg-gray-50 text-gray-500"
+                    className="w-full px-3 py-2 border border-neutral-200 rounded-lg bg-neutral-50 text-neutral-500"
                   />
-                  <p className="text-xs text-gray-400 mt-1">Email cannot be changed</p>
+                  <p className="text-xs text-neutral-400 mt-1">Email cannot be changed</p>
                 </div>
                 <div className="pt-4">
                   <button
                     type="submit"
                     disabled={saving}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                    className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
                   >
                     <Save size={18} />
                     {saving ? 'Saving...' : 'Save Changes'}
@@ -276,36 +276,36 @@ export default function SettingsPage() {
 
           {/* Security Tab */}
           {activeTab === 'security' && (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-6">Change Password</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-6">Change Password</h2>
               
               <form onSubmit={handleChangePassword} className="space-y-4 max-w-md">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-1">New Password</label>
                   <div className="relative">
                     <input
                       type={showPasswords ? 'text' : 'password'}
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
-                      className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 pr-10 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       placeholder="Enter new password"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPasswords(!showPasswords)}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neutral-400"
                     >
                       {showPasswords ? <EyeOff size={18} /> : <Eye size={18} />}
                     </button>
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Confirm New Password</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-1">Confirm New Password</label>
                   <input
                     type={showPasswords ? 'text' : 'password'}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     placeholder="Confirm new password"
                   />
                 </div>
@@ -313,7 +313,7 @@ export default function SettingsPage() {
                   <button
                     type="submit"
                     disabled={saving || !newPassword || !confirmPassword}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                    className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
                   >
                     <Shield size={18} />
                     {saving ? 'Changing...' : 'Change Password'}
@@ -325,32 +325,32 @@ export default function SettingsPage() {
 
           {/* Notifications Tab */}
           {activeTab === 'notifications' && (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-6">Notification Preferences</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-6">Notification Preferences</h2>
               
               <div className="space-y-4">
-                <p className="text-gray-500">Email notifications are coming soon.</p>
+                <p className="text-neutral-500">Email notifications are coming soon.</p>
                 
                 <div className="space-y-3">
-                  <label className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-not-allowed opacity-50">
+                  <label className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg cursor-not-allowed opacity-50">
                     <input type="checkbox" disabled className="w-4 h-4" />
                     <div>
-                      <p className="font-medium text-gray-700">Event Reminders</p>
-                      <p className="text-sm text-gray-500">Get notified about upcoming events</p>
+                      <p className="font-medium text-neutral-700">Event Reminders</p>
+                      <p className="text-sm text-neutral-500">Get notified about upcoming events</p>
                     </div>
                   </label>
-                  <label className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-not-allowed opacity-50">
+                  <label className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg cursor-not-allowed opacity-50">
                     <input type="checkbox" disabled className="w-4 h-4" />
                     <div>
-                      <p className="font-medium text-gray-700">New Reports</p>
-                      <p className="text-sm text-gray-500">Get notified when new reports are submitted</p>
+                      <p className="font-medium text-neutral-700">New Reports</p>
+                      <p className="text-sm text-neutral-500">Get notified when new reports are submitted</p>
                     </div>
                   </label>
-                  <label className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-not-allowed opacity-50">
+                  <label className="flex items-center gap-3 p-3 bg-neutral-50 rounded-lg cursor-not-allowed opacity-50">
                     <input type="checkbox" disabled className="w-4 h-4" />
                     <div>
-                      <p className="font-medium text-gray-700">Approval Requests</p>
-                      <p className="text-sm text-gray-500">Get notified when users need approval</p>
+                      <p className="font-medium text-neutral-700">Approval Requests</p>
+                      <p className="text-sm text-neutral-500">Get notified when users need approval</p>
                     </div>
                   </label>
                 </div>
@@ -360,24 +360,24 @@ export default function SettingsPage() {
 
           {/* Organization Tab */}
           {activeTab === 'organization' && (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-6">Organization Settings</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-6">Organization Settings</h2>
               
               <div className="space-y-6">
-                <div className="p-4 bg-gray-50 rounded-lg">
-                  <h3 className="font-medium text-gray-900 mb-2">Older Apostolic Church</h3>
-                  <p className="text-sm text-gray-500">Church Management System</p>
+                <div className="p-4 bg-neutral-50 rounded-lg">
+                  <h3 className="font-medium text-neutral-900 mb-2">Older Apostolic Church</h3>
+                  <p className="text-sm text-neutral-500">Church Management System</p>
                 </div>
 
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-3">Your Assignment</h3>
+                  <h3 className="font-medium text-neutral-900 mb-3">Your Assignment</h3>
                   <div className="p-4 bg-blue-50 rounded-lg">
-                    <p className="text-sm text-gray-600">Role: <span className="font-medium text-gray-900">{formatRole(userProfile?.role || 'member')}</span></p>
+                    <p className="text-sm text-neutral-600">Role: <span className="font-medium text-neutral-900">{formatRole(userProfile?.role || 'member')}</span></p>
                   </div>
                 </div>
 
                 <div className="pt-4 border-t">
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-neutral-500">
                     Contact your administrator to change organization settings or your role assignment.
                   </p>
                 </div>
@@ -389,3 +389,4 @@ export default function SettingsPage() {
     </div>
   );
 }
+

@@ -31,7 +31,7 @@ const reportTypeConfig: Record<WellnessReportType, { color: string; bgColor: str
   absence: { color: 'text-red-700', bgColor: 'bg-red-100', label: 'Absence', emoji: '📅' },
   prayer_need: { color: 'text-blue-700', bgColor: 'bg-blue-100', label: 'Prayer Need', emoji: '🙏' },
   follow_up: { color: 'text-purple-700', bgColor: 'bg-purple-100', label: 'Follow-up', emoji: '📞' },
-  other: { color: 'text-gray-700', bgColor: 'bg-gray-100', label: 'Other', emoji: '📝' },
+  other: { color: 'text-neutral-700', bgColor: 'bg-neutral-100', label: 'Other', emoji: '📝' },
 };
 
 export default function ReportsCard({
@@ -197,8 +197,8 @@ export default function ReportsCard({
         <Card className="p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-lg font-semibold text-gray-800">My Reports</h2>
-              <p className="text-sm text-gray-500">Wellness & Absence</p>
+              <h2 className="text-lg font-semibold text-neutral-800">My Reports</h2>
+              <p className="text-sm text-neutral-500">Wellness & Absence</p>
             </div>
             {memberRecord && (
               <button
@@ -211,28 +211,28 @@ export default function ReportsCard({
           </div>
 
           {!memberRecord ? (
-            <p className="text-sm text-gray-500 italic">
+            <p className="text-sm text-neutral-500 italic">
               You need to be registered as a member to submit reports. Contact your division leader.
             </p>
           ) : reports.length === 0 ? (
-            <p className="text-center text-gray-500 py-4">
+            <p className="text-center text-neutral-500 py-4">
               No reports submitted. Use this to report illness, planned absence, or prayer needs.
             </p>
           ) : (
             <div className="space-y-3 max-h-64 overflow-y-auto">
               {reports.map((report) => (
-                <div key={report.id} className="p-3 bg-gray-50 rounded-lg">
+                <div key={report.id} className="p-3 bg-neutral-50 rounded-lg">
                   <div className="flex items-center justify-between mb-2">
                     <span className={`px-2 py-1 text-xs rounded-full ${reportTypeConfig[report.report_type].bgColor} ${reportTypeConfig[report.report_type].color}`}>
                       {reportTypeConfig[report.report_type].emoji} {reportTypeConfig[report.report_type].label}
                     </span>
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs text-neutral-500">
                       {formatDateRange(report.start_date, report.end_date)}
                     </span>
                   </div>
-                  <p className="text-sm font-medium text-gray-800">{report.title}</p>
+                  <p className="text-sm font-medium text-neutral-800">{report.title}</p>
                   {report.details && (
-                    <p className="text-sm text-gray-600 mt-1 line-clamp-2">{report.details}</p>
+                    <p className="text-sm text-neutral-600 mt-1 line-clamp-2">{report.details}</p>
                   )}
                   <div className="mt-2">
                     {report.is_resolved ? (
@@ -267,9 +267,9 @@ export default function ReportsCard({
       <Card className="p-6">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">Reports & Wellness</h2>
+            <h2 className="text-lg font-semibold text-neutral-800">Reports & Wellness</h2>
             {lastUpdate && (
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-neutral-400">
                 Last updated: {lastUpdate.toLocaleTimeString()}
               </p>
             )}
@@ -301,7 +301,7 @@ export default function ReportsCard({
                 <p className="text-xl font-bold text-yellow-800">{activeReports}</p>
               </div>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
-                <p className="text-xs text-blue-600 font-medium">This Week</p>
+                <p className="text-xs text-primary-600 font-medium">This Week</p>
                 <p className="text-xl font-bold text-blue-800">{thisWeekReports}</p>
               </div>
             </div>
@@ -314,10 +314,10 @@ export default function ReportsCard({
             )}
 
             {/* Recent reports list */}
-            <div className="border-t border-gray-200 pt-4">
-              <h3 className="text-sm font-medium text-gray-700 mb-3">Recent Reports</h3>
+            <div className="border-t border-neutral-200 pt-4">
+              <h3 className="text-sm font-medium text-neutral-700 mb-3">Recent Reports</h3>
               {reports.length === 0 ? (
-                <p className="text-center text-gray-500 py-4 text-sm">
+                <p className="text-center text-neutral-500 py-4 text-sm">
                   No reports submitted yet.
                 </p>
               ) : (
@@ -326,7 +326,7 @@ export default function ReportsCard({
                     <div
                       key={report.id}
                       className={`p-3 rounded-lg transition-colors cursor-pointer ${
-                        expandedReportId === report.id ? 'bg-yellow-50' : 'bg-gray-50 hover:bg-gray-100'
+                        expandedReportId === report.id ? 'bg-yellow-50' : 'bg-neutral-50 hover:bg-neutral-100'
                       }`}
                       onClick={() => toggleExpanded(report.id)}
                     >
@@ -337,12 +337,12 @@ export default function ReportsCard({
                           >
                             {reportTypeConfig[report.report_type].emoji}
                           </span>
-                          <span className="font-medium text-gray-800 text-sm truncate">
+                          <span className="font-medium text-neutral-800 text-sm truncate">
                             {getMemberName(report.member_id)}
                           </span>
                         </div>
                         <div className="flex items-center gap-2 flex-shrink-0">
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-neutral-500">
                             {formatDateRange(report.start_date, report.end_date)}
                           </span>
                           {report.is_resolved ? (
@@ -353,9 +353,9 @@ export default function ReportsCard({
                         </div>
                       </div>
 
-                      <p className="text-sm text-gray-700 mt-1 font-medium">{report.title}</p>
+                      <p className="text-sm text-neutral-700 mt-1 font-medium">{report.title}</p>
                       {report.details && !expandedReportId && (
-                        <p className="text-xs text-gray-500 mt-1 line-clamp-1">{report.details}</p>
+                        <p className="text-xs text-neutral-500 mt-1 line-clamp-1">{report.details}</p>
                       )}
 
                       {/* Expanded view */}
@@ -363,8 +363,8 @@ export default function ReportsCard({
                         <div className="mt-3 pt-3 border-t border-yellow-200" onClick={(e) => e.stopPropagation()}>
                           {report.details && (
                             <div className="mb-3">
-                              <p className="text-xs font-medium text-gray-600 mb-1">Details:</p>
-                              <p className="text-sm text-gray-700 whitespace-pre-wrap">{report.details}</p>
+                              <p className="text-xs font-medium text-neutral-600 mb-1">Details:</p>
+                              <p className="text-sm text-neutral-700 whitespace-pre-wrap">{report.details}</p>
                             </div>
                           )}
 
@@ -386,7 +386,7 @@ export default function ReportsCard({
                                   setResolutionNotes((prev) => ({ ...prev, [report.id]: e.target.value }))
                                 }
                                 placeholder="Resolution notes (optional)..."
-                                className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:ring-1 focus:ring-yellow-500 text-gray-700"
+                                className="w-full px-3 py-2 text-sm border border-neutral-200 rounded-lg focus:ring-1 focus:ring-yellow-500 text-neutral-700"
                                 rows={2}
                               />
                               <button
@@ -432,3 +432,4 @@ export default function ReportsCard({
     </>
   );
 }
+

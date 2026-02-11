@@ -92,13 +92,13 @@ export default async function ElderDashboard() {
   }));
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-neutral-50 p-6">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-neutral-900">
           District Analytics
         </h1>
-        <p className="text-gray-600 mt-2">
+        <p className="text-neutral-600 mt-2">
           {eldership?.name || 'Eldership'} - Overview & Growth Stats
         </p>
       </div>
@@ -106,24 +106,24 @@ export default async function ElderDashboard() {
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         <div className="bg-white rounded-lg shadow p-6 border-l-4 border-green-500">
-          <div className="text-sm text-gray-600 font-medium">Total Priestships</div>
-          <div className="text-3xl font-bold text-gray-900 mt-2">{priestshipList.length}</div>
-          <div className="text-xs text-gray-500 mt-1">Under eldership</div>
+          <div className="text-sm text-neutral-600 font-medium">Total Priestships</div>
+          <div className="text-3xl font-bold text-neutral-900 mt-2">{priestshipList.length}</div>
+          <div className="text-xs text-neutral-500 mt-1">Under eldership</div>
         </div>
         <div className="bg-white rounded-lg shadow p-6 border-l-4 border-blue-500">
-          <div className="text-sm text-gray-600 font-medium">Total Members</div>
-          <div className="text-3xl font-bold text-gray-900 mt-2">{totalMembers}</div>
-          <div className="text-xs text-gray-500 mt-1">Across all branches</div>
+          <div className="text-sm text-neutral-600 font-medium">Total Members</div>
+          <div className="text-3xl font-bold text-neutral-900 mt-2">{totalMembers}</div>
+          <div className="text-xs text-neutral-500 mt-1">Across all branches</div>
         </div>
         <div className="bg-white rounded-lg shadow p-6 border-l-4 border-purple-500">
-          <div className="text-sm text-gray-600 font-medium">Approved Members</div>
-          <div className="text-3xl font-bold text-gray-900 mt-2">{approvedMembers}</div>
-          <div className="text-xs text-gray-500 mt-1">Active & verified</div>
+          <div className="text-sm text-neutral-600 font-medium">Approved Members</div>
+          <div className="text-3xl font-bold text-neutral-900 mt-2">{approvedMembers}</div>
+          <div className="text-xs text-neutral-500 mt-1">Active & verified</div>
         </div>
         <div className="bg-white rounded-lg shadow p-6 border-l-4 border-yellow-500">
-          <div className="text-sm text-gray-600 font-medium">Recruitment Pipeline</div>
-          <div className="text-3xl font-bold text-gray-900 mt-2">{recruitmentStats.total}</div>
-          <div className="text-xs text-gray-500 mt-1">Souls in pipeline</div>
+          <div className="text-sm text-neutral-600 font-medium">Recruitment Pipeline</div>
+          <div className="text-3xl font-bold text-neutral-900 mt-2">{recruitmentStats.total}</div>
+          <div className="text-xs text-neutral-500 mt-1">Souls in pipeline</div>
         </div>
       </div>
 
@@ -131,30 +131,30 @@ export default async function ElderDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         {/* Priestship Breakdown */}
         <div className="bg-white rounded-lg shadow">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
+          <div className="px-6 py-4 border-b border-neutral-200">
+            <h2 className="text-xl font-semibold text-neutral-900">
               Priestships Overview
             </h2>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-neutral-600 mt-1">
               Branch performance across the district
             </p>
           </div>
           <div className="p-6">
             {priestshipsWithCounts.length === 0 ? (
               <div className="text-center py-8">
-                <p className="text-gray-500">No priestships found</p>
+                <p className="text-neutral-500">No priestships found</p>
               </div>
             ) : (
               <div className="space-y-3">
                 {priestshipsWithCounts.map((priestship) => (
-                  <div key={priestship.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <div key={priestship.id} className="flex items-center justify-between p-4 bg-neutral-50 rounded-lg hover:bg-neutral-100 transition-colors">
                     <div>
-                      <p className="font-medium text-gray-900">{priestship.name}</p>
-                      <p className="text-sm text-gray-600">Branch location</p>
+                      <p className="font-medium text-neutral-900">{priestship.name}</p>
+                      <p className="text-sm text-neutral-600">Branch location</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-2xl font-bold text-gray-900">{priestship.member_count}</p>
-                      <p className="text-xs text-gray-500">members</p>
+                      <p className="text-2xl font-bold text-neutral-900">{priestship.member_count}</p>
+                      <p className="text-xs text-neutral-500">members</p>
                     </div>
                   </div>
                 ))}
@@ -165,11 +165,11 @@ export default async function ElderDashboard() {
 
         {/* Recruitment Pipeline Stats */}
         <div className="bg-white rounded-lg shadow">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
+          <div className="px-6 py-4 border-b border-neutral-200">
+            <h2 className="text-xl font-semibold text-neutral-900">
               Soul-Winning Pipeline
             </h2>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-neutral-600 mt-1">
               District-wide recruitment funnel
             </p>
           </div>
@@ -177,18 +177,18 @@ export default async function ElderDashboard() {
             <div className="space-y-4">
               <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
                 <div>
-                  <p className="font-medium text-gray-900">Prospects</p>
-                  <p className="text-sm text-gray-600">Initial contact made</p>
+                  <p className="font-medium text-neutral-900">Prospects</p>
+                  <p className="text-sm text-neutral-600">Initial contact made</p>
                 </div>
-                <div className="text-2xl font-bold text-blue-600">
+                <div className="text-2xl font-bold text-primary-600">
                   {recruitmentStats.by_status.prospect}
                 </div>
               </div>
               
               <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
                 <div>
-                  <p className="font-medium text-gray-900">First Visit</p>
-                  <p className="text-sm text-gray-600">Attended once</p>
+                  <p className="font-medium text-neutral-900">First Visit</p>
+                  <p className="text-sm text-neutral-600">Attended once</p>
                 </div>
                 <div className="text-2xl font-bold text-green-600">
                   {recruitmentStats.by_status.first_visit}
@@ -197,8 +197,8 @@ export default async function ElderDashboard() {
               
               <div className="flex items-center justify-between p-4 bg-yellow-50 rounded-lg">
                 <div>
-                  <p className="font-medium text-gray-900">Second Visit</p>
-                  <p className="text-sm text-gray-600">Returning visitors</p>
+                  <p className="font-medium text-neutral-900">Second Visit</p>
+                  <p className="text-sm text-neutral-600">Returning visitors</p>
                 </div>
                 <div className="text-2xl font-bold text-yellow-600">
                   {recruitmentStats.by_status.second_visit}
@@ -207,8 +207,8 @@ export default async function ElderDashboard() {
               
               <div className="flex items-center justify-between p-4 bg-purple-50 rounded-lg">
                 <div>
-                  <p className="font-medium text-gray-900">Regular Attendees</p>
-                  <p className="text-sm text-gray-600">Consistent participation</p>
+                  <p className="font-medium text-neutral-900">Regular Attendees</p>
+                  <p className="text-sm text-neutral-600">Consistent participation</p>
                 </div>
                 <div className="text-2xl font-bold text-purple-600">
                   {recruitmentStats.by_status.regular_attendee}
@@ -221,11 +221,11 @@ export default async function ElderDashboard() {
 
       {/* Growth Metrics */}
       <div className="bg-white rounded-lg shadow">
-        <div className="px-6 py-4 border-b border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-900">
+        <div className="px-6 py-4 border-b border-neutral-200">
+          <h2 className="text-xl font-semibold text-neutral-900">
             Growth Statistics
           </h2>
-          <p className="text-sm text-gray-600 mt-1">
+          <p className="text-sm text-neutral-600 mt-1">
             Track progress across all priestships in your district
           </p>
         </div>
@@ -246,7 +246,7 @@ export default async function ElderDashboard() {
               <div className="text-4xl font-bold text-blue-900">
                 {recruitmentStats.by_status.prospect + recruitmentStats.by_status.first_visit}
               </div>
-              <div className="text-xs text-blue-600 mt-2">Prospects + First Visits</div>
+              <div className="text-xs text-primary-600 mt-2">Prospects + First Visits</div>
             </div>
             
             <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg">
@@ -264,3 +264,4 @@ export default async function ElderDashboard() {
     </div>
   );
 }
+

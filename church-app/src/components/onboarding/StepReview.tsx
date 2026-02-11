@@ -30,8 +30,8 @@ export default function StepReview({ data, onBack, onSubmit, submitting, error }
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Review & Submit</h2>
-        <p className="text-gray-600 text-sm">
+        <h2 className="text-xl font-semibold text-neutral-800 mb-2">Review & Submit</h2>
+        <p className="text-neutral-600 text-sm">
           Please review your information before submitting.
         </p>
       </div>
@@ -44,42 +44,42 @@ export default function StepReview({ data, onBack, onSubmit, submitting, error }
 
       <div className="space-y-4">
         {/* Personal Information */}
-        <div className="bg-gray-50 rounded-lg p-4">
-          <h3 className="text-sm font-medium text-gray-500 mb-3">Personal Information</h3>
+        <div className="bg-neutral-50 rounded-lg p-4">
+          <h3 className="text-sm font-medium text-neutral-500 mb-3">Personal Information</h3>
           <div className="space-y-2">
             <div className="flex justify-between">
-              <span className="text-gray-600">Name:</span>
-              <span className="font-medium text-gray-800">{data.firstName} {data.lastName}</span>
+              <span className="text-neutral-600">Name:</span>
+              <span className="font-medium text-neutral-800">{data.firstName} {data.lastName}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Phone:</span>
-              <span className="font-medium text-gray-800">{data.phone}</span>
+              <span className="text-neutral-600">Phone:</span>
+              <span className="font-medium text-neutral-800">{data.phone}</span>
             </div>
           </div>
         </div>
 
         {/* Role */}
-        <div className="bg-gray-50 rounded-lg p-4">
-          <h3 className="text-sm font-medium text-gray-500 mb-3">Church Role</h3>
+        <div className="bg-neutral-50 rounded-lg p-4">
+          <h3 className="text-sm font-medium text-neutral-500 mb-3">Church Role</h3>
           <div className="flex justify-between">
-            <span className="text-gray-600">Role:</span>
-            <span className="font-medium text-gray-800">{formatRole(data.role)}</span>
+            <span className="text-neutral-600">Role:</span>
+            <span className="font-medium text-neutral-800">{formatRole(data.role)}</span>
           </div>
         </div>
 
         {/* Primary Assignment */}
-        <div className="bg-gray-50 rounded-lg p-4">
-          <h3 className="text-sm font-medium text-gray-500 mb-3">Primary Assignment</h3>
+        <div className="bg-neutral-50 rounded-lg p-4">
+          <h3 className="text-sm font-medium text-neutral-500 mb-3">Primary Assignment</h3>
           <div className="flex justify-between">
-            <span className="text-gray-600">Assignment:</span>
-            <span className="font-medium text-gray-800">{getAssignmentDescription()}</span>
+            <span className="text-neutral-600">Assignment:</span>
+            <span className="font-medium text-neutral-800">{getAssignmentDescription()}</span>
           </div>
         </div>
 
         {/* Additional Responsibilities */}
         {data.additionalDivisions && data.additionalDivisions.length > 0 && (
-          <div className="bg-gray-50 rounded-lg p-4">
-            <h3 className="text-sm font-medium text-gray-500 mb-3">Additional Responsibilities</h3>
+          <div className="bg-neutral-50 rounded-lg p-4">
+            <h3 className="text-sm font-medium text-neutral-500 mb-3">Additional Responsibilities</h3>
             <div className="flex flex-wrap gap-2">
               {data.additionalDivisions.map((div) => (
                 <span
@@ -106,7 +106,7 @@ export default function StepReview({ data, onBack, onSubmit, submitting, error }
         <button
           onClick={onBack}
           disabled={submitting}
-          className="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50"
+          className="px-6 py-2 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 transition-colors disabled:opacity-50"
         >
           Back
         </button>
@@ -128,3 +128,4 @@ export default function StepReview({ data, onBack, onSubmit, submitting, error }
     </div>
   );
 }
+

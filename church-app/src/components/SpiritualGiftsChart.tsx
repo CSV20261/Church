@@ -52,3 +52,4 @@ export default function SpiritualGiftsChart({ data }: SpiritualGiftsChartProps) 
     </div>
   );
 }
+

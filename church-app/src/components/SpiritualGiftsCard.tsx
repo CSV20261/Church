@@ -33,7 +33,7 @@ const giftTypeConfig: Record<GiftType, { color: string; bgColor: string; label: 
   tongue: { color: 'text-orange-700', bgColor: 'bg-orange-100', label: 'Tongue' },
   interpretation: { color: 'text-teal-700', bgColor: 'bg-teal-100', label: 'Interpretation' },
   healing: { color: 'text-red-700', bgColor: 'bg-red-100', label: 'Healing' },
-  other: { color: 'text-gray-700', bgColor: 'bg-gray-100', label: 'Other' },
+  other: { color: 'text-neutral-700', bgColor: 'bg-neutral-100', label: 'Other' },
 };
 
 export default function SpiritualGiftsCard({
@@ -211,8 +211,8 @@ export default function SpiritualGiftsCard({
         <Card className="p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-lg font-semibold text-gray-800">My Spiritual Gifts</h2>
-              <p className="text-sm text-gray-500">Dreams, Visions & Prophecies</p>
+              <h2 className="text-lg font-semibold text-neutral-800">My Spiritual Gifts</h2>
+              <p className="text-sm text-neutral-500">Dreams, Visions & Prophecies</p>
             </div>
             {memberRecord && (
               <button
@@ -225,28 +225,28 @@ export default function SpiritualGiftsCard({
           </div>
 
           {!memberRecord ? (
-            <p className="text-sm text-gray-500 italic">
+            <p className="text-sm text-neutral-500 italic">
               You need to be registered as a member to report spiritual gifts. Contact your division leader.
             </p>
           ) : gifts.length === 0 ? (
-            <p className="text-center text-gray-500 py-4">
+            <p className="text-center text-neutral-500 py-4">
               No spiritual gifts reported yet. Share your dreams, visions, or prophecies with your church leaders.
             </p>
           ) : (
             <div className="space-y-3 max-h-64 overflow-y-auto">
               {gifts.map((gift) => (
-                <div key={gift.id} className="p-3 bg-gray-50 rounded-lg">
+                <div key={gift.id} className="p-3 bg-neutral-50 rounded-lg">
                   <div className="flex items-center justify-between mb-2">
                     <span className={`px-2 py-1 text-xs rounded-full ${giftTypeConfig[gift.gift_type].bgColor} ${giftTypeConfig[gift.gift_type].color}`}>
                       {giftTypeConfig[gift.gift_type].label}
                     </span>
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs text-neutral-500">
                       {new Date(gift.date_received).toLocaleDateString()}
                     </span>
                   </div>
-                  <p className="text-sm font-medium text-gray-800">{gift.title}</p>
+                  <p className="text-sm font-medium text-neutral-800">{gift.title}</p>
                   {gift.description && (
-                    <p className="text-sm text-gray-600 mt-1 line-clamp-2">{gift.description}</p>
+                    <p className="text-sm text-neutral-600 mt-1 line-clamp-2">{gift.description}</p>
                   )}
                   <div className="mt-2 flex items-center gap-2">
                     {gift.is_reviewed ? (
@@ -280,9 +280,9 @@ export default function SpiritualGiftsCard({
       <Card className="p-6">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">Spiritual Gifts</h2>
+            <h2 className="text-lg font-semibold text-neutral-800">Spiritual Gifts</h2>
             {lastUpdate && (
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-neutral-400">
                 Last updated: {lastUpdate.toLocaleTimeString()}
               </p>
             )}
@@ -314,7 +314,7 @@ export default function SpiritualGiftsCard({
                 <p className="text-xl font-bold text-purple-800">{gifts.length}</p>
               </div>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
-                <p className="text-xs text-blue-600 font-medium">This Month</p>
+                <p className="text-xs text-primary-600 font-medium">This Month</p>
                 <p className="text-xl font-bold text-blue-800">{thisMonthGifts.length}</p>
               </div>
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 text-center">
@@ -331,10 +331,10 @@ export default function SpiritualGiftsCard({
             )}
 
             {/* Recent reports list */}
-            <div className="border-t border-gray-200 pt-4">
-              <h3 className="text-sm font-medium text-gray-700 mb-3">Recent Reports</h3>
+            <div className="border-t border-neutral-200 pt-4">
+              <h3 className="text-sm font-medium text-neutral-700 mb-3">Recent Reports</h3>
               {gifts.length === 0 ? (
-                <p className="text-center text-gray-500 py-4 text-sm">
+                <p className="text-center text-neutral-500 py-4 text-sm">
                   No spiritual gifts reported yet.
                 </p>
               ) : (
@@ -343,7 +343,7 @@ export default function SpiritualGiftsCard({
                     <div
                       key={gift.id}
                       className={`p-3 rounded-lg transition-colors cursor-pointer ${
-                        expandedGiftId === gift.id ? 'bg-purple-50' : 'bg-gray-50 hover:bg-gray-100'
+                        expandedGiftId === gift.id ? 'bg-purple-50' : 'bg-neutral-50 hover:bg-neutral-100'
                       }`}
                       onClick={() => toggleExpanded(gift.id)}
                     >
@@ -354,12 +354,12 @@ export default function SpiritualGiftsCard({
                           >
                             {giftTypeConfig[gift.gift_type].label}
                           </span>
-                          <span className="font-medium text-gray-800 text-sm truncate">
+                          <span className="font-medium text-neutral-800 text-sm truncate">
                             {getMemberName(gift.member_id)}
                           </span>
                         </div>
                         <div className="flex items-center gap-2 flex-shrink-0">
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-neutral-500">
                             {new Date(gift.date_received).toLocaleDateString()}
                           </span>
                           {gift.is_reviewed ? (
@@ -371,9 +371,9 @@ export default function SpiritualGiftsCard({
                       </div>
 
                       {/* Title and description snippet */}
-                      <p className="text-sm text-gray-700 mt-1 font-medium">{gift.title}</p>
+                      <p className="text-sm text-neutral-700 mt-1 font-medium">{gift.title}</p>
                       {gift.description && !expandedGiftId && (
-                        <p className="text-xs text-gray-500 mt-1 line-clamp-1">{gift.description}</p>
+                        <p className="text-xs text-neutral-500 mt-1 line-clamp-1">{gift.description}</p>
                       )}
 
                       {/* Expanded view */}
@@ -381,8 +381,8 @@ export default function SpiritualGiftsCard({
                         <div className="mt-3 pt-3 border-t border-purple-200" onClick={(e) => e.stopPropagation()}>
                           {gift.description && (
                             <div className="mb-3">
-                              <p className="text-xs font-medium text-gray-600 mb-1">Full Description:</p>
-                              <p className="text-sm text-gray-700 whitespace-pre-wrap">{gift.description}</p>
+                              <p className="text-xs font-medium text-neutral-600 mb-1">Full Description:</p>
+                              <p className="text-sm text-neutral-700 whitespace-pre-wrap">{gift.description}</p>
                             </div>
                           )}
 
@@ -398,17 +398,17 @@ export default function SpiritualGiftsCard({
                                   setAssessmentNotes((prev) => ({ ...prev, [gift.id]: e.target.value }))
                                 }
                                 placeholder="Add assessment notes..."
-                                className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:ring-1 focus:ring-purple-500 text-gray-700"
+                                className="w-full px-3 py-2 text-sm border border-neutral-200 rounded-lg focus:ring-1 focus:ring-purple-500 text-neutral-700"
                                 rows={2}
                               />
                               <div className="flex items-center justify-between mt-2">
-                                <label className="flex items-center gap-2 text-sm text-gray-600">
+                                <label className="flex items-center gap-2 text-sm text-neutral-600">
                                   <input
                                     type="checkbox"
                                     checked={gift.is_reviewed}
                                     onChange={(e) => saveAssessment(gift.id, e.target.checked)}
                                     disabled={savingAssessment === gift.id}
-                                    className="rounded border-gray-300 text-purple-600 focus:ring-purple-500"
+                                    className="rounded border-neutral-300 text-purple-600 focus:ring-purple-500"
                                   />
                                   Mark as Reviewed
                                 </label>
@@ -453,3 +453,4 @@ export default function SpiritualGiftsCard({
     </>
   );
 }
+

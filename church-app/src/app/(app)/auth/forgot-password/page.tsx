@@ -46,8 +46,8 @@ export default function ForgotPasswordPage() {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">⛪</span>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">Forgot Password</h1>
-            <p className="text-gray-500 mt-2">
+            <h1 className="text-2xl font-bold text-neutral-900">Forgot Password</h1>
+            <p className="text-neutral-500 mt-2">
               {sent 
                 ? 'Check your email for reset instructions' 
                 : 'Enter your email to receive a password reset link'
@@ -61,18 +61,18 @@ export default function ForgotPasswordPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle size={32} className="text-green-600" />
               </div>
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">Email Sent!</h2>
-              <p className="text-gray-600 mb-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-2">Email Sent!</h2>
+              <p className="text-neutral-600 mb-6">
                 We've sent a password reset link to <strong>{email}</strong>. 
                 Please check your inbox and follow the instructions.
               </p>
-              <p className="text-sm text-gray-500 mb-6">
+              <p className="text-sm text-neutral-500 mb-6">
                 Didn't receive the email? Check your spam folder or try again.
               </p>
               <div className="space-y-3">
                 <button
                   onClick={() => setSent(false)}
-                  className="w-full px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="w-full px-4 py-2 border border-neutral-300 text-neutral-700 rounded-lg hover:bg-neutral-50 transition-colors"
                 >
                   Try Another Email
                 </button>
@@ -94,16 +94,16 @@ export default function ForgotPasswordPage() {
               )}
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-neutral-700 mb-1">
                   Email Address
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400" size={20} />
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full pl-10 pr-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="your@email.com"
                     required
                   />
@@ -120,7 +120,7 @@ export default function ForgotPasswordPage() {
 
               <Link
                 href="/auth/login"
-                className="flex items-center justify-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
+                className="flex items-center justify-center gap-2 text-neutral-600 hover:text-neutral-800 transition-colors"
               >
                 <ArrowLeft size={18} />
                 Back to Login
@@ -130,10 +130,11 @@ export default function ForgotPasswordPage() {
         </div>
 
         {/* Footer */}
-        <p className="text-center text-gray-500 text-sm mt-6">
+        <p className="text-center text-neutral-500 text-sm mt-6">
           Older Apostolic Church Management System
         </p>
       </div>
     </div>
   );
 }
+

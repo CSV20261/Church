@@ -29,7 +29,7 @@ const EVENT_TYPES = [
   { value: 'prayer_meeting', label: 'Prayer Meeting', color: 'bg-green-100 text-green-700' },
   { value: 'youth_meeting', label: 'Youth Meeting', color: 'bg-yellow-100 text-yellow-700' },
   { value: 'special_service', label: 'Special Service', color: 'bg-red-100 text-red-700' },
-  { value: 'other', label: 'Other', color: 'bg-gray-100 text-gray-700' },
+  { value: 'other', label: 'Other', color: 'bg-neutral-100 text-neutral-700' },
 ];
 
 export default function EventsPage() {
@@ -94,7 +94,7 @@ export default function EventsPage() {
   }
 
   function getEventTypeStyle(type: string) {
-    return EVENT_TYPES.find(t => t.value === type)?.color || 'bg-gray-100 text-gray-700';
+    return EVENT_TYPES.find(t => t.value === type)?.color || 'bg-neutral-100 text-neutral-700';
   }
 
   function getEventTypeLabel(type: string) {
@@ -158,16 +158,16 @@ export default function EventsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Events</h1>
-          <p className="text-gray-600">Church services and events calendar</p>
+          <h1 className="text-2xl font-bold text-neutral-900">Events</h1>
+          <p className="text-neutral-600">Church services and events calendar</p>
         </div>
         <div className="flex items-center gap-3">
           {/* View Toggle */}
-          <div className="flex bg-gray-100 rounded-lg p-1">
+          <div className="flex bg-neutral-100 rounded-lg p-1">
             <button
               onClick={() => setViewMode('list')}
               className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
-                viewMode === 'list' ? 'bg-white shadow text-gray-900' : 'text-gray-600 hover:text-gray-900'
+                viewMode === 'list' ? 'bg-white shadow text-neutral-900' : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
               List
@@ -175,7 +175,7 @@ export default function EventsPage() {
             <button
               onClick={() => setViewMode('calendar')}
               className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
-                viewMode === 'calendar' ? 'bg-white shadow text-gray-900' : 'text-gray-600 hover:text-gray-900'
+                viewMode === 'calendar' ? 'bg-white shadow text-neutral-900' : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
               Calendar
@@ -184,7 +184,7 @@ export default function EventsPage() {
           {userProfile && canManageEvents(userProfile.role) && (
             <button
               onClick={() => setIsAddModalOpen(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
             >
               <Plus size={20} />
               Add Event
@@ -216,42 +216,42 @@ export default function EventsPage() {
 
       {viewMode === 'list' ? (
         /* List View */
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-neutral-50 border-b border-neutral-200">
                 <tr>
-                  <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Event</th>
-                  <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Date & Time</th>
-                  <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                  <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Priestship</th>
-                  <th className="text-right px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                  <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Event</th>
+                  <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Date & Time</th>
+                  <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Type</th>
+                  <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Priestship</th>
+                  <th className="text-right px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {events.length === 0 ? (
                   <tr>
-                    <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
+                    <td colSpan={5} className="px-6 py-12 text-center text-neutral-500">
                       No events scheduled. Create your first event!
                     </td>
                   </tr>
                 ) : (
                   events.map((event) => (
-                    <tr key={event.id} className="hover:bg-gray-50">
+                    <tr key={event.id} className="hover:bg-neutral-50">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                            <Calendar size={20} className="text-blue-600" />
+                            <Calendar size={20} className="text-primary-600" />
                           </div>
-                          <span className="font-medium text-gray-900">{event.title}</span>
+                          <span className="font-medium text-neutral-900">{event.title}</span>
                         </div>
                       </td>
                       <td className="px-6 py-4">
-                        <div className="flex items-center gap-2 text-gray-600">
+                        <div className="flex items-center gap-2 text-neutral-600">
                           <Clock size={16} />
                           <div>
                             <p className="font-medium">{formatDate(event.date_time)}</p>
-                            <p className="text-sm text-gray-500">{formatTime(event.date_time, event.start_time)}</p>
+                            <p className="text-sm text-neutral-500">{formatTime(event.date_time, event.start_time)}</p>
                           </div>
                         </div>
                       </td>
@@ -260,7 +260,7 @@ export default function EventsPage() {
                           {getEventTypeLabel(event.event_type)}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-gray-600">
+                      <td className="px-6 py-4 text-neutral-600">
                         {event.priestship?.name || 'All'}
                       </td>
                       <td className="px-6 py-4">
@@ -271,14 +271,14 @@ export default function EventsPage() {
                                 setSelectedEvent(event);
                                 setIsEditModalOpen(true);
                               }}
-                              className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+                              className="p-2 text-neutral-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
                               title="Edit"
                             >
                               <Edit2 size={18} />
                             </button>
                             <button
                               onClick={() => handleDeleteEvent(event.id)}
-                              className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                              className="p-2 text-neutral-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                               title="Delete"
                             >
                               <Trash2 size={18} />
@@ -295,12 +295,12 @@ export default function EventsPage() {
         </div>
       ) : (
         /* Calendar View */
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-6">
           {/* Calendar Header */}
           <div className="flex items-center justify-between mb-6">
             <button
               onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))}
-              className="p-2 hover:bg-gray-100 rounded-lg"
+              className="p-2 hover:bg-neutral-100 rounded-lg"
             >
               <ChevronLeft size={20} />
             </button>
@@ -309,7 +309,7 @@ export default function EventsPage() {
             </h2>
             <button
               onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))}
-              className="p-2 hover:bg-gray-100 rounded-lg"
+              className="p-2 hover:bg-neutral-100 rounded-lg"
             >
               <ChevronRight size={20} />
             </button>
@@ -318,7 +318,7 @@ export default function EventsPage() {
           {/* Calendar Grid */}
           <div className="grid grid-cols-7 gap-1">
             {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-              <div key={day} className="text-center text-sm font-medium text-gray-500 py-2">
+              <div key={day} className="text-center text-sm font-medium text-neutral-500 py-2">
                 {day}
               </div>
             ))}
@@ -336,10 +336,10 @@ export default function EventsPage() {
                 <div
                   key={day}
                   className={`aspect-square p-1 border rounded-lg ${
-                    isToday ? 'bg-blue-50 border-blue-300' : 'border-gray-200 hover:bg-gray-50'
+                    isToday ? 'bg-blue-50 border-blue-300' : 'border-neutral-200 hover:bg-neutral-50'
                   }`}
                 >
-                  <div className={`text-sm font-medium ${isToday ? 'text-blue-600' : 'text-gray-700'}`}>
+                  <div className={`text-sm font-medium ${isToday ? 'text-primary-600' : 'text-neutral-700'}`}>
                     {day}
                   </div>
                   <div className="mt-1 space-y-0.5">
@@ -353,7 +353,7 @@ export default function EventsPage() {
                       </div>
                     ))}
                     {dayEvents.length > 2 && (
-                      <div className="text-xs text-gray-500">+{dayEvents.length - 2} more</div>
+                      <div className="text-xs text-neutral-500">+{dayEvents.length - 2} more</div>
                     )}
                   </div>
                 </div>
@@ -491,7 +491,7 @@ function EventModal({
       <div className="bg-white rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-lg font-semibold">{isEdit ? 'Edit Event' : 'Add New Event'}</h2>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
+          <button onClick={onClose} className="p-2 hover:bg-neutral-100 rounded-lg">
             <X size={20} />
           </button>
         </div>
@@ -502,43 +502,43 @@ function EventModal({
             </div>
           )}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Event Title *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Event Title *</label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               placeholder="e.g., Sunday Morning Service"
               required
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Date *</label>
+              <label className="block text-sm font-medium text-neutral-700 mb-1">Date *</label>
               <input
                 type="date"
                 value={eventDate}
                 onChange={(e) => setEventDate(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Start Time</label>
+              <label className="block text-sm font-medium text-neutral-700 mb-1">Start Time</label>
               <input
                 type="time"
                 value={startTime}
                 onChange={(e) => setStartTime(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Event Type</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Event Type</label>
             <select
               value={eventType}
               onChange={(e) => setEventType(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               {EVENT_TYPES.map((type) => (
                 <option key={type.value} value={type.value}>{type.label}</option>
@@ -546,11 +546,11 @@ function EventModal({
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Priestship (optional)</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Priestship (optional)</label>
             <select
               value={priestshipId}
               onChange={(e) => setPriestshipId(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               <option value="">All (Global Event)</option>
               {priestships.map((p) => (
@@ -562,14 +562,14 @@ function EventModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+              className="flex-1 px-4 py-2 border border-neutral-300 text-neutral-700 rounded-lg hover:bg-neutral-50"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+              className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
             >
               {loading ? 'Saving...' : isEdit ? 'Save Changes' : 'Create Event'}
             </button>
@@ -579,3 +579,4 @@ function EventModal({
     </div>
   );
 }
+

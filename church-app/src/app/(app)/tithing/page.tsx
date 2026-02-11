@@ -153,13 +153,13 @@ export default function TithingPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Tithing</h1>
-          <p className="text-gray-600">Track and manage tithing contributions</p>
+          <h1 className="text-2xl font-bold text-neutral-900">Tithing</h1>
+          <p className="text-neutral-600">Track and manage tithing contributions</p>
         </div>
         {userProfile && canManageTithing(userProfile.role) && (
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
           >
             <Plus size={20} />
             Record Tithing
@@ -175,66 +175,66 @@ export default function TithingPage() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center">
               <DollarSign size={24} className="text-green-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-500">This Month</p>
-              <p className="text-xl font-bold text-gray-900">{formatCurrency(thisMonthTotal)}</p>
+              <p className="text-sm text-neutral-500">This Month</p>
+              <p className="text-xl font-bold text-neutral-900">{formatCurrency(thisMonthTotal)}</p>
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
-              <Users size={24} className="text-blue-600" />
+              <Users size={24} className="text-primary-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-500">Contributors (This Month)</p>
-              <p className="text-xl font-bold text-gray-900">{uniqueContributors}</p>
+              <p className="text-sm text-neutral-500">Contributors (This Month)</p>
+              <p className="text-xl font-bold text-neutral-900">{uniqueContributors}</p>
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center">
               <TrendingUp size={24} className="text-purple-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-500">Total Records</p>
-              <p className="text-xl font-bold text-gray-900">{records.length}</p>
+              <p className="text-sm text-neutral-500">Total Records</p>
+              <p className="text-xl font-bold text-neutral-900">{records.length}</p>
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center">
               <Calendar size={24} className="text-yellow-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-500">All Time Total</p>
-              <p className="text-xl font-bold text-gray-900">{formatCurrency(totalAll)}</p>
+              <p className="text-sm text-neutral-500">All Time Total</p>
+              <p className="text-xl font-bold text-neutral-900">{formatCurrency(totalAll)}</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Chart */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
-        <h3 className="font-semibold text-gray-900 mb-4">Monthly Tithing (Last 6 Months)</h3>
+      <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-6 mb-6">
+        <h3 className="font-semibold text-neutral-900 mb-4">Monthly Tithing (Last 6 Months)</h3>
         <div className="flex items-end gap-4 h-48">
           {monthlyData.map((data) => (
             <div key={data.month} className="flex-1 flex flex-col items-center">
-              <div className="w-full bg-gray-100 rounded-t-lg relative" style={{ height: '160px' }}>
+              <div className="w-full bg-neutral-100 rounded-t-lg relative" style={{ height: '160px' }}>
                 <div
                   className="absolute bottom-0 w-full bg-green-500 rounded-t-lg transition-all duration-500"
                   style={{ height: `${(data.total / maxMonthlyTotal) * 100}%` }}
                 ></div>
               </div>
-              <p className="text-xs text-gray-500 mt-2">{data.label}</p>
-              <p className="text-xs font-medium text-gray-700">{formatCurrency(data.total)}</p>
+              <p className="text-xs text-neutral-500 mt-2">{data.label}</p>
+              <p className="text-xs font-medium text-neutral-700">{formatCurrency(data.total)}</p>
             </div>
           ))}
         </div>
@@ -243,20 +243,20 @@ export default function TithingPage() {
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-4 mb-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Filter by Month</label>
+          <label className="block text-sm font-medium text-neutral-700 mb-1">Filter by Month</label>
           <input
             type="month"
             value={filterMonth}
             onChange={(e) => setFilterMonth(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Filter by Member</label>
+          <label className="block text-sm font-medium text-neutral-700 mb-1">Filter by Member</label>
           <select
             value={filterMember}
             onChange={(e) => setFilterMember(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent min-w-[200px]"
+            className="px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent min-w-[200px]"
           >
             <option value="">All Members</option>
             {members.map((m) => (
@@ -268,7 +268,7 @@ export default function TithingPage() {
           <div className="flex items-end">
             <button
               onClick={() => { setFilterMonth(''); setFilterMember(''); }}
-              className="px-3 py-2 text-gray-600 hover:text-gray-800"
+              className="px-3 py-2 text-neutral-600 hover:text-neutral-800"
             >
               Clear Filters
             </button>
@@ -277,46 +277,46 @@ export default function TithingPage() {
       </div>
 
       {/* Records Table */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+      <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-neutral-50 border-b border-neutral-200">
               <tr>
-                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Member</th>
-                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
-                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Method</th>
-                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Notes</th>
+                <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Member</th>
+                <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Amount</th>
+                <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Date</th>
+                <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Method</th>
+                <th className="text-left px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Notes</th>
                 {userProfile && canManageTithing(userProfile.role) && (
-                  <th className="text-right px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                  <th className="text-right px-6 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Actions</th>
                 )}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {filteredRecords.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
+                  <td colSpan={6} className="px-6 py-12 text-center text-neutral-500">
                     No tithing records found.
                   </td>
                 </tr>
               ) : (
                 filteredRecords.map((record) => (
-                  <tr key={record.id} className="hover:bg-gray-50">
+                  <tr key={record.id} className="hover:bg-neutral-50">
                     <td className="px-6 py-4">
-                      <span className="font-medium text-gray-900">{record.member?.full_name || 'Unknown'}</span>
+                      <span className="font-medium text-neutral-900">{record.member?.full_name || 'Unknown'}</span>
                     </td>
                     <td className="px-6 py-4">
                       <span className="font-semibold text-green-600">{formatCurrency(record.amount)}</span>
                     </td>
-                    <td className="px-6 py-4 text-gray-600">
+                    <td className="px-6 py-4 text-neutral-600">
                       {formatDate(record.date_paid)}
                     </td>
                     <td className="px-6 py-4">
-                      <span className="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-700">
+                      <span className="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-neutral-100 text-neutral-700">
                         {record.payment_method || 'Cash'}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-500 text-sm max-w-xs truncate">
+                    <td className="px-6 py-4 text-neutral-500 text-sm max-w-xs truncate">
                       {record.notes || '-'}
                     </td>
                     {userProfile && canManageTithing(userProfile.role) && (
@@ -327,14 +327,14 @@ export default function TithingPage() {
                               setSelectedRecord(record);
                               setIsEditModalOpen(true);
                             }}
-                            className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+                            className="p-2 text-neutral-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
                             title="Edit"
                           >
                             <Edit2 size={18} />
                           </button>
                           <button
                             onClick={() => handleDeleteRecord(record.id)}
-                            className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                            className="p-2 text-neutral-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                             title="Delete"
                           >
                             <Trash2 size={18} />
@@ -466,7 +466,7 @@ function TithingModal({
       <div className="bg-white rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-lg font-semibold">{isEdit ? 'Edit Tithing Record' : 'Record Tithing'}</h2>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
+          <button onClick={onClose} className="p-2 hover:bg-neutral-100 rounded-lg">
             <X size={20} />
           </button>
         </div>
@@ -477,11 +477,11 @@ function TithingModal({
             </div>
           )}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Member *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Member *</label>
             <select
               value={memberId}
               onChange={(e) => setMemberId(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               required
             >
               <option value="">Select member</option>
@@ -491,33 +491,33 @@ function TithingModal({
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Amount (ZAR) *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Amount (ZAR) *</label>
             <input
               type="number"
               step="0.01"
               min="0"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               placeholder="0.00"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Date Paid</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Date Paid</label>
             <input
               type="date"
               value={datePaid}
               onChange={(e) => setDatePaid(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Payment Method</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Payment Method</label>
             <select
               value={paymentMethod}
               onChange={(e) => setPaymentMethod(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               <option value="cash">Cash</option>
               <option value="eft">EFT / Bank Transfer</option>
@@ -526,11 +526,11 @@ function TithingModal({
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Notes</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Notes</label>
             <textarea
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               rows={2}
               placeholder="Optional notes..."
             />
@@ -539,14 +539,14 @@ function TithingModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+              className="flex-1 px-4 py-2 border border-neutral-300 text-neutral-700 rounded-lg hover:bg-neutral-50"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+              className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
             >
               {loading ? 'Saving...' : isEdit ? 'Save Changes' : 'Record Tithing'}
             </button>
@@ -556,3 +556,4 @@ function TithingModal({
     </div>
   );
 }
+

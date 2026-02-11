@@ -66,8 +66,8 @@ export default function StepSelectRole({ data, updateData, onNext, onBack }: Ste
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Select Your Role</h2>
-        <p className="text-gray-600 text-sm">
+        <h2 className="text-xl font-semibold text-neutral-800 mb-2">Select Your Role</h2>
+        <p className="text-neutral-600 text-sm">
           Choose the role that matches your position in the church. This will be verified by leadership.
         </p>
       </div>
@@ -80,21 +80,21 @@ export default function StepSelectRole({ data, updateData, onNext, onBack }: Ste
             className={`w-full p-4 rounded-lg border-2 text-left transition-all ${
               data.role === option.role
                 ? 'border-green-600 bg-green-50'
-                : 'border-gray-200 hover:border-gray-300 bg-white'
+                : 'border-neutral-200 hover:border-neutral-300 bg-white'
             }`}
           >
             <div className="flex items-start gap-3">
               <span className="text-2xl">{option.icon}</span>
               <div className="flex-1">
                 <div className="flex items-center justify-between">
-                  <span className="font-medium text-gray-800">
+                  <span className="font-medium text-neutral-800">
                     {formatRole(option.role)}
                   </span>
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-neutral-400">
                     Level {ROLE_HIERARCHY[option.role]}
                   </span>
                 </div>
-                <p className="text-sm text-gray-600 mt-1">{option.description}</p>
+                <p className="text-sm text-neutral-600 mt-1">{option.description}</p>
               </div>
               {data.role === option.role && (
                 <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
@@ -123,7 +123,7 @@ export default function StepSelectRole({ data, updateData, onNext, onBack }: Ste
       <div className="flex justify-between pt-4">
         <button
           onClick={onBack}
-          className="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+          className="px-6 py-2 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 transition-colors"
         >
           Back
         </button>
@@ -137,3 +137,4 @@ export default function StepSelectRole({ data, updateData, onNext, onBack }: Ste
     </div>
   );
 }
+

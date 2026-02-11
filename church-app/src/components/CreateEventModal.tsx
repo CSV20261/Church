@@ -81,10 +81,10 @@ export default function CreateEventModal({
       {/* Modal */}
       <div className="relative bg-white rounded-xl shadow-xl w-full max-w-md mx-4 p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-gray-800">Create New Event</h2>
+          <h2 className="text-xl font-semibold text-neutral-800">Create New Event</h2>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            className="text-neutral-400 hover:text-neutral-600 transition-colors"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -100,7 +100,7 @@ export default function CreateEventModal({
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="title" className="block text-sm font-medium text-neutral-700 mb-1">
               Event Title *
             </label>
             <input
@@ -108,21 +108,21 @@ export default function CreateEventModal({
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
+              className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-neutral-900"
               placeholder="Sunday Service"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="eventType" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="eventType" className="block text-sm font-medium text-neutral-700 mb-1">
               Event Type
             </label>
             <select
               id="eventType"
               value={eventType}
               onChange={(e) => setEventType(e.target.value as EventType)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 bg-white"
+              className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-neutral-900 bg-white"
             >
               <option value="service">Service</option>
               <option value="meeting">Meeting</option>
@@ -137,7 +137,7 @@ export default function CreateEventModal({
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="eventDate" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="eventDate" className="block text-sm font-medium text-neutral-700 mb-1">
                 Date *
               </label>
               <input
@@ -146,12 +146,12 @@ export default function CreateEventModal({
                 value={eventDate}
                 onChange={(e) => setEventDate(e.target.value)}
                 min={today}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-neutral-900"
                 required
               />
             </div>
             <div>
-              <label htmlFor="startTime" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="startTime" className="block text-sm font-medium text-neutral-700 mb-1">
                 Start Time
               </label>
               <input
@@ -159,7 +159,7 @@ export default function CreateEventModal({
                 type="time"
                 value={startTime}
                 onChange={(e) => setStartTime(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-neutral-900"
               />
             </div>
           </div>
@@ -168,7 +168,7 @@ export default function CreateEventModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex-1 px-4 py-2 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 transition-colors"
             >
               Cancel
             </button>
@@ -185,3 +185,4 @@ export default function CreateEventModal({
     </div>
   );
 }
+

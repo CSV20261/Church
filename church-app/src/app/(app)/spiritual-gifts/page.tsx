@@ -33,7 +33,7 @@ const GIFT_TYPES = [
   { value: 'dream', label: 'Dream', color: 'bg-purple-100 text-purple-700', icon: '🌙' },
   { value: 'vision', label: 'Vision', color: 'bg-blue-100 text-blue-700', icon: '👁️' },
   { value: 'prophecy', label: 'Prophecy', color: 'bg-amber-100 text-amber-700', icon: '📜' },
-  { value: 'other', label: 'Other', color: 'bg-gray-100 text-gray-700', icon: '✨' },
+  { value: 'other', label: 'Other', color: 'bg-neutral-100 text-neutral-700', icon: '✨' },
 ];
 
 export default function SpiritualGiftsPage() {
@@ -149,8 +149,8 @@ export default function SpiritualGiftsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Spiritual Gifts</h1>
-          <p className="text-gray-600">Record and review dreams, visions, and prophecies</p>
+          <h1 className="text-2xl font-bold text-neutral-900">Spiritual Gifts</h1>
+          <p className="text-neutral-600">Record and review dreams, visions, and prophecies</p>
         </div>
         {userProfile && canManageGifts(userProfile.role) && (
           <button
@@ -174,27 +174,27 @@ export default function SpiritualGiftsPage() {
         {GIFT_TYPES.slice(0, 3).map(type => {
           const count = gifts.filter(g => g.gift_type === type.value).length;
           return (
-            <div key={type.value} className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div key={type.value} className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
               <div className="flex items-center gap-3">
                 <div className={`w-12 h-12 rounded-lg ${type.color.split(' ')[0]} flex items-center justify-center text-2xl`}>
                   {type.icon}
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">{type.label}s</p>
-                  <p className="text-xl font-bold text-gray-900">{count}</p>
+                  <p className="text-sm text-neutral-500">{type.label}s</p>
+                  <p className="text-xl font-bold text-neutral-900">{count}</p>
                 </div>
               </div>
             </div>
           );
         })}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center">
               <Clock size={24} className="text-yellow-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-500">Pending Review</p>
-              <p className="text-xl font-bold text-gray-900">{pendingReview}</p>
+              <p className="text-sm text-neutral-500">Pending Review</p>
+              <p className="text-xl font-bold text-neutral-900">{pendingReview}</p>
             </div>
           </div>
         </div>
@@ -203,11 +203,11 @@ export default function SpiritualGiftsPage() {
       {/* Filters */}
       <div className="flex flex-wrap gap-4 mb-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
+          <label className="block text-sm font-medium text-neutral-700 mb-1">Type</label>
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           >
             <option value="">All Types</option>
             {GIFT_TYPES.map(t => (
@@ -216,11 +216,11 @@ export default function SpiritualGiftsPage() {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+          <label className="block text-sm font-medium text-neutral-700 mb-1">Status</label>
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           >
             <option value="">All</option>
             <option value="pending">Pending Review</option>
@@ -232,16 +232,16 @@ export default function SpiritualGiftsPage() {
       {/* Gifts List */}
       <div className="space-y-4">
         {filteredGifts.length === 0 ? (
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-12 text-center">
-            <Sparkles size={48} className="mx-auto text-gray-300 mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No Spiritual Gifts Recorded</h3>
-            <p className="text-gray-500">Start recording dreams, visions, and prophecies</p>
+          <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-12 text-center">
+            <Sparkles size={48} className="mx-auto text-neutral-300 mb-4" />
+            <h3 className="text-lg font-medium text-neutral-900 mb-2">No Spiritual Gifts Recorded</h3>
+            <p className="text-neutral-500">Start recording dreams, visions, and prophecies</p>
           </div>
         ) : (
           filteredGifts.map((gift) => {
             const typeInfo = getGiftTypeInfo(gift.gift_type);
             return (
-              <div key={gift.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div key={gift.id} className="bg-white rounded-xl shadow-sm border border-neutral-200 p-4 hover:shadow-md transition-shadow">
                 <div className="flex flex-col sm:flex-row justify-between gap-4">
                   <div className="flex gap-4">
                     <div className={`w-12 h-12 rounded-lg ${typeInfo.color.split(' ')[0]} flex items-center justify-center text-2xl flex-shrink-0`}>
@@ -263,9 +263,9 @@ export default function SpiritualGiftsPage() {
                           </span>
                         )}
                       </div>
-                      <p className="font-medium text-gray-900">{gift.member?.full_name || 'Unknown'}</p>
-                      <p className="text-sm text-gray-500 mt-1">{formatDate(gift.date_reported)}</p>
-                      <p className="text-gray-600 mt-2 line-clamp-2">{gift.description}</p>
+                      <p className="font-medium text-neutral-900">{gift.member?.full_name || 'Unknown'}</p>
+                      <p className="text-sm text-neutral-500 mt-1">{formatDate(gift.date_reported)}</p>
+                      <p className="text-neutral-600 mt-2 line-clamp-2">{gift.description}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2 sm:flex-shrink-0">
@@ -274,7 +274,7 @@ export default function SpiritualGiftsPage() {
                         setSelectedGift(gift);
                         setIsViewModalOpen(true);
                       }}
-                      className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                      className="p-2 text-neutral-400 hover:text-primary-600 hover:bg-blue-50 rounded-lg transition-colors"
                       title="View Details"
                     >
                       <Eye size={18} />
@@ -282,7 +282,7 @@ export default function SpiritualGiftsPage() {
                     {userProfile && canManageGifts(userProfile.role) && !gift.is_reviewed && (
                       <button
                         onClick={() => markAsReviewed(gift.id)}
-                        className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+                        className="p-2 text-neutral-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
                         title="Mark as Reviewed"
                       >
                         <Check size={18} />
@@ -388,7 +388,7 @@ function GiftModal({
       <div className="bg-white rounded-xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-lg font-semibold">Record Spiritual Gift</h2>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
+          <button onClick={onClose} className="p-2 hover:bg-neutral-100 rounded-lg">
             <X size={20} />
           </button>
         </div>
@@ -399,11 +399,11 @@ function GiftModal({
             </div>
           )}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Member *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Member *</label>
             <select
               value={memberId}
               onChange={(e) => setMemberId(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               required
             >
               <option value="">Select member</option>
@@ -413,11 +413,11 @@ function GiftModal({
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Gift Type *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Gift Type *</label>
             <select
               value={giftType}
               onChange={(e) => setGiftType(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             >
               {GIFT_TYPES.map(t => (
                 <option key={t.value} value={t.value}>{t.icon} {t.label}</option>
@@ -425,31 +425,31 @@ function GiftModal({
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Date Reported</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Date Reported</label>
             <input
               type="date"
               value={dateReported}
               onChange={(e) => setDateReported(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Description *</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Description *</label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               rows={4}
               placeholder="Describe the dream, vision, or prophecy..."
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Notes (optional)</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Notes (optional)</label>
             <textarea
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               rows={2}
               placeholder="Additional notes..."
             />
@@ -458,7 +458,7 @@ function GiftModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+              className="flex-1 px-4 py-2 border border-neutral-300 text-neutral-700 rounded-lg hover:bg-neutral-50"
             >
               Cancel
             </button>
@@ -497,7 +497,7 @@ function ViewGiftModal({
       <div className="bg-white rounded-xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-lg font-semibold">Spiritual Gift Details</h2>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
+          <button onClick={onClose} className="p-2 hover:bg-neutral-100 rounded-lg">
             <X size={20} />
           </button>
         </div>
@@ -510,8 +510,8 @@ function ViewGiftModal({
               <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${typeInfo.color}`}>
                 {typeInfo.label}
               </span>
-              <h3 className="text-xl font-semibold text-gray-900 mt-1">{gift.member?.full_name}</h3>
-              <p className="text-sm text-gray-500">
+              <h3 className="text-xl font-semibold text-neutral-900 mt-1">{gift.member?.full_name}</h3>
+              <p className="text-sm text-neutral-500">
                 {new Date(gift.date_reported).toLocaleDateString('en-ZA', { 
                   weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' 
                 })}
@@ -521,14 +521,14 @@ function ViewGiftModal({
 
           <div className="space-y-4">
             <div>
-              <h4 className="text-sm font-medium text-gray-500 mb-1">Description</h4>
-              <p className="text-gray-900 whitespace-pre-wrap">{gift.description}</p>
+              <h4 className="text-sm font-medium text-neutral-500 mb-1">Description</h4>
+              <p className="text-neutral-900 whitespace-pre-wrap">{gift.description}</p>
             </div>
 
             {gift.notes && (
               <div>
-                <h4 className="text-sm font-medium text-gray-500 mb-1">Notes</h4>
-                <p className="text-gray-700">{gift.notes}</p>
+                <h4 className="text-sm font-medium text-neutral-500 mb-1">Notes</h4>
+                <p className="text-neutral-700">{gift.notes}</p>
               </div>
             )}
 
@@ -541,7 +541,7 @@ function ViewGiftModal({
                 </span>
               </div>
               {gift.assessed_at && (
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-neutral-500 mt-2">
                   Reviewed on {new Date(gift.assessed_at).toLocaleDateString()}
                 </p>
               )}
@@ -551,7 +551,7 @@ function ViewGiftModal({
         <div className="p-4 border-t">
           <button
             onClick={onClose}
-            className="w-full px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
+            className="w-full px-4 py-2 bg-neutral-100 text-neutral-700 rounded-lg hover:bg-neutral-200"
           >
             Close
           </button>
@@ -560,3 +560,4 @@ function ViewGiftModal({
     </div>
   );
 }
+

@@ -40,8 +40,8 @@ export default function StepPersonalInfo({ data, updateData, onNext }: StepPerso
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Personal Information</h2>
-        <p className="text-gray-600 text-sm">
+        <h2 className="text-xl font-semibold text-neutral-800 mb-2">Personal Information</h2>
+        <p className="text-neutral-600 text-sm">
           Please provide your details so we can identify you within the church.
         </p>
       </div>
@@ -49,15 +49,15 @@ export default function StepPersonalInfo({ data, updateData, onNext }: StepPerso
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-neutral-700 mb-1">
               First Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
               value={data.firstName}
               onChange={(e) => updateData({ firstName: e.target.value })}
-              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 ${
-                errors.firstName ? 'border-red-500' : 'border-gray-300'
+              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-neutral-900 ${
+                errors.firstName ? 'border-red-500' : 'border-neutral-300'
               }`}
               placeholder="John"
             />
@@ -66,15 +66,15 @@ export default function StepPersonalInfo({ data, updateData, onNext }: StepPerso
             )}
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-neutral-700 mb-1">
               Last Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
               value={data.lastName}
               onChange={(e) => updateData({ lastName: e.target.value })}
-              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 ${
-                errors.lastName ? 'border-red-500' : 'border-gray-300'
+              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-neutral-900 ${
+                errors.lastName ? 'border-red-500' : 'border-neutral-300'
               }`}
               placeholder="Doe"
             />
@@ -85,15 +85,15 @@ export default function StepPersonalInfo({ data, updateData, onNext }: StepPerso
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-neutral-700 mb-1">
             Phone Number <span className="text-red-500">*</span>
           </label>
           <input
             type="tel"
             value={data.phone}
             onChange={(e) => updateData({ phone: e.target.value })}
-            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 ${
-              errors.phone ? 'border-red-500' : 'border-gray-300'
+            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-neutral-900 ${
+              errors.phone ? 'border-red-500' : 'border-neutral-300'
             }`}
             placeholder="+27 XX XXX XXXX"
           />
@@ -103,20 +103,20 @@ export default function StepPersonalInfo({ data, updateData, onNext }: StepPerso
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Profile Photo <span className="text-gray-400">(optional)</span>
+          <label className="block text-sm font-medium text-neutral-700 mb-1">
+            Profile Photo <span className="text-neutral-400">(optional)</span>
           </label>
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+            <div className="w-16 h-16 bg-neutral-200 rounded-full flex items-center justify-center overflow-hidden">
               {data.profilePhotoUrl ? (
                 <img src={data.profilePhotoUrl} alt="Profile" className="w-full h-full object-cover" />
               ) : (
-                <span className="text-2xl text-gray-400">
+                <span className="text-2xl text-neutral-400">
                   {data.firstName ? data.firstName[0].toUpperCase() : '?'}
                 </span>
               )}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-neutral-500">
               <p>Photo upload will be available soon.</p>
               <p>You can add this later in your profile settings.</p>
             </div>
@@ -135,3 +135,4 @@ export default function StepPersonalInfo({ data, updateData, onNext }: StepPerso
     </div>
   );
 }
+

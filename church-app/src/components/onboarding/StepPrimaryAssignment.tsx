@@ -151,8 +151,8 @@ export default function StepPrimaryAssignment({ data, updateData, onNext, onBack
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Primary Assignment</h2>
-        <p className="text-gray-600 text-sm">
+        <h2 className="text-xl font-semibold text-neutral-800 mb-2">Primary Assignment</h2>
+        <p className="text-neutral-600 text-sm">
           Select where you serve in the church structure.
         </p>
       </div>
@@ -166,31 +166,31 @@ export default function StepPrimaryAssignment({ data, updateData, onNext, onBack
       {/* Assignment Type Selection (Shepherd vs Specialist) */}
       {canBeSpecialist && (
         <div className="space-y-3">
-          <label className="block text-sm font-medium text-gray-700">Assignment Type</label>
+          <label className="block text-sm font-medium text-neutral-700">Assignment Type</label>
           <div className="grid grid-cols-2 gap-4">
             <button
               onClick={() => handleAssignmentTypeChange('unit')}
               className={`p-4 rounded-lg border-2 text-left transition-all ${
                 data.assignmentType === 'unit'
                   ? 'border-green-600 bg-green-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                  : 'border-neutral-200 hover:border-neutral-300'
               }`}
             >
               <span className="text-xl">🏠</span>
-              <p className="font-medium text-gray-800 mt-2">Shepherd</p>
-              <p className="text-xs text-gray-500">Lead one organizational unit</p>
+              <p className="font-medium text-neutral-800 mt-2">Shepherd</p>
+              <p className="text-xs text-neutral-500">Lead one organizational unit</p>
             </button>
             <button
               onClick={() => handleAssignmentTypeChange('specialist')}
               className={`p-4 rounded-lg border-2 text-left transition-all ${
                 data.assignmentType === 'specialist'
                   ? 'border-green-600 bg-green-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                  : 'border-neutral-200 hover:border-neutral-300'
               }`}
             >
               <span className="text-xl">⭐</span>
-              <p className="font-medium text-gray-800 mt-2">Specialist</p>
-              <p className="text-xs text-gray-500">Focus on specific ministry area</p>
+              <p className="font-medium text-neutral-800 mt-2">Specialist</p>
+              <p className="text-xs text-neutral-500">Focus on specific ministry area</p>
             </button>
           </div>
         </div>
@@ -201,11 +201,11 @@ export default function StepPrimaryAssignment({ data, updateData, onNext, onBack
         <div className="space-y-4">
           {availableUnitTypes.length > 1 && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Unit Type</label>
+              <label className="block text-sm font-medium text-neutral-700 mb-2">Unit Type</label>
               <select
                 value={data.unitType || availableUnitTypes[0]}
                 onChange={(e) => updateData({ unitType: e.target.value as UnitType, selectedUnitId: undefined })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 text-gray-900 bg-white"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-green-500 text-neutral-900 bg-white"
               >
                 {availableUnitTypes.map((type) => (
                   <option key={type} value={type}>
@@ -217,7 +217,7 @@ export default function StepPrimaryAssignment({ data, updateData, onNext, onBack
           )}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-neutral-700 mb-2">
               Select Your {getUnitLabel(data.unitType || availableUnitTypes[0])}
             </label>
             {getUnitsForType(data.unitType || availableUnitTypes[0]).length === 0 ? (
@@ -236,12 +236,12 @@ export default function StepPrimaryAssignment({ data, updateData, onNext, onBack
                     className={`w-full p-3 rounded-lg border-2 text-left transition-all ${
                       data.selectedUnitId === unit.id
                         ? 'border-green-600 bg-green-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        : 'border-neutral-200 hover:border-neutral-300'
                     }`}
                   >
-                    <p className="font-medium text-gray-800">{unit.name}</p>
+                    <p className="font-medium text-neutral-800">{unit.name}</p>
                     {'location' in unit && unit.location && (
-                      <p className="text-sm text-gray-500">{unit.location}</p>
+                      <p className="text-sm text-neutral-500">{unit.location}</p>
                     )}
                   </button>
                 ))}
@@ -264,7 +264,7 @@ export default function StepPrimaryAssignment({ data, updateData, onNext, onBack
       <div className="flex justify-between pt-4">
         <button
           onClick={onBack}
-          className="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+          className="px-6 py-2 border border-neutral-300 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 transition-colors"
         >
           Back
         </button>
@@ -279,3 +279,4 @@ export default function StepPrimaryAssignment({ data, updateData, onNext, onBack
     </div>
   );
 }
+
