@@ -56,8 +56,16 @@ export default async function AppLayout({
   }
 
   return (
-    <>
-      {children}
-    </>
+    <div className="min-h-screen bg-gray-50">
+      <Header 
+        profile={profile}
+        userEmail={user?.email || null}
+        assignments={assignments}
+        pendingApprovalsCount={pendingApprovalsCount}
+      />
+      <main>
+        {children}
+      </main>
+    </div>
   );
 }
