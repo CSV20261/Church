@@ -347,7 +347,7 @@ function ViewMemberModal({
         <div className="p-6">
           {/* Avatar and Name */}
           <div className="flex flex-col items-center mb-6">
-            <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center mb-3">
+            <div className="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center mb-3">
               <span className="text-2xl font-bold text-primary-600">
                 {member.full_name.split(' ').map((n: string) => n[0]).join('').slice(0, 2).toUpperCase()}
               </span>
@@ -590,7 +590,7 @@ export default function MembersPage() {
               <div key={member.id} className="bg-white rounded-lg border-2 border-neutral-200 p-3 shadow-sm">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-3 flex-1 min-w-0">
-                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
                       <span className="text-primary-600 font-bold text-sm">
                         {member.full_name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
                       </span>
@@ -616,7 +616,7 @@ export default function MembersPage() {
                 <div className="flex gap-2 pt-2 border-t border-neutral-200">
                   <button
                     onClick={() => handleViewMember(member)}
-                    className="flex-1 flex items-center justify-center gap-2 p-2 text-primary-600 bg-blue-50 rounded-lg font-bold text-xs"
+                    className="flex-1 flex items-center justify-center gap-2 p-2 text-primary-600 bg-primary-50 rounded-lg font-bold text-xs"
                   >
                     <Eye size={16} />
                     View
@@ -662,7 +662,7 @@ export default function MembersPage() {
                     <tr key={member.id} className="hover:bg-neutral-50">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                          <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
                             <span className="text-primary-600 font-bold">
                               {member.full_name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
                             </span>
@@ -689,7 +689,7 @@ export default function MembersPage() {
                         <div className="flex justify-end gap-2">
                           <button
                             onClick={() => handleViewMember(member)}
-                            className="p-2 text-neutral-400 hover:text-primary-600 hover:bg-blue-50 rounded-lg transition-colors"
+                            className="p-2 text-neutral-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
                             title="View"
                           >
                             <Eye size={18} />
@@ -767,4 +767,5 @@ export default function MembersPage() {
     </div>
   );
 }
+
 
