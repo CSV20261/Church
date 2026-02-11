@@ -1,11 +1,11 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Users, Music, BookOpen, UserPlus, 
   Settings, LogOut, LayoutDashboard, 
   TrendingUp, AlertTriangle, ChevronRight,
-  Sparkles, ClipboardCheck
+  Sparkles, ClipboardCheck, Menu, X
 } from 'lucide-react';
 import { FunnelChart, Funnel, LabelList, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -43,6 +43,7 @@ export default function UnderdeaconDashboardClient({
   regularCount,
   recruitment
 }: Props) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   
   // Build funnel data from real database counts
   const funnelData = [
@@ -63,8 +64,27 @@ export default function UnderdeaconDashboardClient({
 
   return (
     <div className="flex h-screen overflow-hidden bg-[#f8fafc] text-slate-800 font-sans">
-      {/* Sidebar Navigation - Slim Vertical Style */}
-      <aside className="w-64 bg-[#1e293b] text-white flex flex-col p-4 shadow-xl fixed h-screen">
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        className="fixed top-4 left-4 z-50 lg:hidden p-2 bg-[#1e293b] text-white rounded-lg shadow-lg"
+      >
+        {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* Overlay for mobile */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      {/* Sidebar Navigation - Hidden on mobile, slide in when open */}
+      <aside className={`
+        w-64 bg-[#1e293b] text-white flex flex-col p-4 shadow-xl fixed h-screen z-40 transition-transform duration-300
+        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      `}>
         <div className="flex items-center gap-3 px-2 mb-10">
           <div className="w-8 h-8 bg-[#34d399] rounded-lg flex items-center justify-center">
             <span className="font-bold text-slate-900">U</span>
@@ -94,8 +114,8 @@ export default function UnderdeaconDashboardClient({
         </div>
       </aside>
 
-      {/* Main Content Area */}
-      <main className="flex-1 ml-64 overflow-y-auto p-8 h-screen">
+      {/* Main Content Area - No left margin on mobile */}
+      <main className="flex-1 lg:ml-64 overflow-y-auto p-4 sm:p-6 lg:p-8 h-screen pt-16 lg:pt-8">
         {/* Header - Stack on Mobile */}
         <header className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-6 sm:mb-8">
           <div className="flex-1">
