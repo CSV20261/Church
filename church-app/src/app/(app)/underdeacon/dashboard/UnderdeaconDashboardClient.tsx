@@ -96,18 +96,18 @@ export default function UnderdeaconDashboardClient({
 
       {/* Main Content Area */}
       <main className="flex-1 ml-64 overflow-y-auto p-8 h-screen">
-        {/* Header - Vital Signs */}
-        <header className="flex justify-between items-end mb-8">
-          <div>
-            <p className="text-slate-500 text-sm font-medium">Centurion South | Priestship</p>
-            <h2 className="text-3xl font-bold text-slate-900">Underdeacon Command Center</h2>
+        {/* Header - Stack on Mobile */}
+        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-6 sm:mb-8">
+          <div className="flex-1">
+            <p className="text-slate-500 text-xs sm:text-sm font-semibold">Centurion South | Priestship</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 mt-1">Underdeacon Command Center</h2>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="text-right">
+          <div className="flex items-center gap-3 sm:gap-4 w-full sm:w-auto">
+            <div className="text-left sm:text-right flex-1 sm:flex-initial">
               <p className="text-sm font-bold text-slate-900">{profileName}</p>
               <p className="text-xs text-slate-500">Underdeacon</p>
             </div>
-            <div className="w-10 h-10 bg-slate-200 rounded-full border-2 border-white shadow-sm overflow-hidden flex items-center justify-center">
+            <div className="w-10 h-10 bg-slate-200 rounded-full border-2 border-white shadow-sm overflow-hidden flex items-center justify-center flex-shrink-0">
                <span className="text-slate-600 text-lg font-bold">
                  {profileName.split(' ').map(n => n[0]).join('')}
                </span>
@@ -115,8 +115,8 @@ export default function UnderdeaconDashboardClient({
           </div>
         </header>
 
-        {/* Top KPI Cards */}
-        <div className="grid grid-cols-4 gap-6 mb-8">
+        {/* Top KPI Cards - One Column on Mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 sm:mb-8">
           {stats.map((stat, i) => (
             <div key={i} className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex justify-between items-start mb-2">
@@ -132,9 +132,9 @@ export default function UnderdeaconDashboardClient({
           ))}
         </div>
 
-        {/* Central Stage: Funnel & AI Consultant */}
-        <div className="grid grid-cols-3 gap-8 mb-8">
-          <div className="col-span-2 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        {/* Central Stage: Funnel & AI Consultant - Stack on Mobile */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
+          <div className="lg:col-span-2 bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm">
             <h3 className="text-lg font-bold mb-6">Soul Progress</h3>
             <div className="h-[300px] w-full">
               {funnelData.length > 0 ? (
@@ -175,8 +175,8 @@ export default function UnderdeaconDashboardClient({
           </div>
         </div>
 
-        {/* Dual-Track Action Center */}
-        <div className="grid grid-cols-2 gap-8">
+        {/* Dual-Track Action Center - Stack on Mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {/* Movement of Souls Column */}
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
             <div className="p-5 border-b border-slate-100 flex justify-between items-center">

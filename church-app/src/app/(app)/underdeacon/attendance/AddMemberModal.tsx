@@ -241,30 +241,30 @@ export default function AddMemberModal({ category, profile, onClose }: Props) {
                 ✓ Continuity: Member will inherit your hierarchy structure
               </p>
               
-              <div className="grid grid-cols-2 gap-3 text-sm">
+              <div className="space-y-3 text-sm">
                 <div>
-                  <span className="text-slate-600">Apostleship:</span>
-                  <span className="ml-2 font-medium text-slate-900">
+                  <div className="text-slate-600 font-semibold mb-1">Apostleship:</div>
+                  <div className="font-bold text-slate-900 text-base">
                     {profile.apostleship_name || 'None'}
-                  </span>
+                  </div>
                 </div>
                 <div>
-                  <span className="text-slate-600">Overseership:</span>
-                  <span className="ml-2 font-medium text-slate-900">
+                  <div className="text-slate-600 font-semibold mb-1">Overseership:</div>
+                  <div className="font-bold text-slate-900 text-base">
                     {profile.overseership_name || 'None'}
-                  </span>
+                  </div>
                 </div>
                 <div>
-                  <span className="text-slate-600">Eldership:</span>
-                  <span className="ml-2 font-medium text-slate-900">
+                  <div className="text-slate-600 font-semibold mb-1">Eldership:</div>
+                  <div className="font-bold text-slate-900 text-base">
                     {profile.eldership_name || 'None'}
-                  </span>
+                  </div>
                 </div>
                 <div>
-                  <span className="text-slate-600">Priestship:</span>
-                  <span className="ml-2 font-medium text-slate-900">
+                  <div className="text-slate-600 font-semibold mb-1">Priestship:</div>
+                  <div className="font-bold text-slate-900 text-base">
                     {profile.priestship_name || 'None'}
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
